@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 主题初始化：首次访问跟随系统，选择后写入 localStorage（内联执行，避免闪烁） -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('ding-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <title>丁博文 · AI 产品经理 | 个人网站</title>
+  <meta name="description" content="丁博文的个人网站：AI 产品经理求职作品集。香港城市大学 × 复旦大学金融科技硕士（2027 届），十段实习覆盖 AI 行业研究、投资分析、IT 咨询审计与数据分析，独立打造 June AI 与 ai-video-eval 两款 AI 产品，具备 Agent、模型评测、RAG 检索与 LLM 可观测性的体系化知识。">
+  <meta name="keywords" content="丁博文, AI 产品经理, 个人网站, 项目, 教育, 作品集, Agent, RAG, LLM 评测, 金融科技">
+  <meta name="author" content="丁博文">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="丁博文 · AI 产品经理">
+  <meta property="og:description" content="香港城市大学 × 复旦大学金融科技硕士 · 2027 届｜十段实习 · 两款独立 AI 产品（June AI / ai-video-eval）">
+  <meta property="og:url" content="https://legendofgithub.github.io/portfolio/">
+  <meta property="og:image" content="https://legendofgithub.github.io/portfolio/assets/profile.jpeg">
+
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0A192F">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "丁博文",
+    "jobTitle": "AI 产品经理",
+    "url": "https://github.com/legendofgithub",
+    "alumniOf": ["香港城市大学", "复旦大学", "首都经济贸易大学"],
+    "knowsAbout": ["Agent 设计", "LLM 评测", "RAG 检索", "LLM 可观测性", "金融科技"]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- 图标精灵（Feather 风格线性图标，stroke 继承 currentColor） -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <!-- ======================= 吸顶导航 ======================= -->
+  <header class="nav" id="top">
+    <nav class="nav-inner container" aria-label="主导航">
+      <a class="brand" href="#home">丁博文<span class="brand-dot" aria-hidden="true">.</span></a>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="#home">首页</a></li>
+        <li><a class="nav-link" href="#about">关于我</a></li>
+        <li><a class="nav-link" href="#knowledge">知识体系</a></li>
+        <li><a class="nav-link" href="#projects">产品案例</a></li>
+        <li><a class="nav-link" href="#experience">工作经历</a></li>
+        <li><a class="nav-link" href="#education">教育</a></li>
+        <li><a class="nav-link" href="#contact">联系</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button type="button" class="icon-btn theme-btn" data-theme-toggle aria-label="切换深色或浅色主题">
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button type="button" class="icon-btn nav-toggle" aria-expanded="false" aria-controls="nav-drawer" aria-label="打开菜单">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 移动端侧滑抽屉 -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+  <nav class="nav-drawer" id="nav-drawer" aria-label="移动端导航">
+    <ul>
+      <li><a class="nav-link" href="#home">首页</a></li>
+      <li><a class="nav-link" href="#about">关于我</a></li>
+      <li><a class="nav-link" href="#knowledge">知识体系</a></li>
+      <li><a class="nav-link" href="#projects">产品案例</a></li>
+      <li><a class="nav-link" href="#experience">工作经历</a></li>
+      <li><a class="nav-link" href="#education">教育</a></li>
+      <li><a class="nav-link" href="#contact">联系</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+    <!-- ======================= ① Hero 首屏 ======================= -->
+    <section class="hero" id="home" aria-label="首屏">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <p class="hero-eyebrow">你好，我是丁博文</p>
+          <h1>AI 产品经理</h1>
+          <p class="hero-sub">香港城市大学 × 复旦大学 金融科技硕士 · 2027 届</p>
+
+          <p class="hero-typed">
+            <span class="typed-prompt mono" aria-hidden="true">&gt;_</span>
+            <span id="typed" aria-hidden="true"></span><span class="cursor" aria-hidden="true"></span>
+            <span class="sr-only">专注方向：Agent 产品设计、LLM 评测与可观测性、RAG 与检索、金融 × AI 交叉背景</span>
+          </p>
+
+          <ul class="hero-chips" aria-label="履历速览">
+            <li class="chip">10 段实习</li>
+            <li class="chip">2 款独立 AI 产品</li>
+            <li class="chip">期望 base 北京 / 上海</li>
+            <li class="chip">雅思 6.5</li>
+          </ul>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">查看产品案例<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#contact">联系我</a>
+            <a class="icon-btn gh-link" href="https://github.com/legendofgithub" target="_blank" rel="noopener noreferrer" aria-label="GitHub 主页（legendofgithub）">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-photo reveal">
+          <div class="photo-frame">
+            <img src="assets/profile.jpeg" alt="丁博文证件照" width="270" height="374">
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="向下滚动查看更多">
+        <span>滚动探索</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg>
+      </a>
+    </section>
+
+    <!-- ======================= ② 关于我 ======================= -->
+    <section class="section section--alt" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="sec-num mono">01 · ABOUT</span>
+          <h2 id="about-title" class="sec-title">关于我</h2>
+        </header>
+
+        <p class="about-lead reveal">
+          金融 + IT 交叉学科背景：香港城市大学 × 复旦大学金融科技联合培养硕士（2027 届），本科信息管理与信息系统。先后完成十段实习，覆盖 AI 行业研究、投资分析、IT 咨询审计与数据分析；独立打造 June AI 与 ai-video-eval 两款 AI 产品，对 Agent、模型评测、检索与可观测性形成体系化认知——习惯用数据与结构说话。
+        </p>
+
+        <div class="stats" data-stagger>
+          <div class="stat reveal">
+            <span class="stat-num mono">10<span class="stat-unit">段</span></span>
+            <p class="stat-label">实习经历，覆盖 AI 行业研究 / 投资分析 / IT 审计 / 数据分析</p>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-num mono">2<span class="stat-unit">款</span></span>
+            <p class="stat-label">独立打造的 AI 产品：June AI 与 ai-video-eval</p>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-num mono">800<span class="stat-unit">+</span></span>
+            <p class="stat-label">师生参与的大型校园公益活动，由我发起并全程统筹</p>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-num mono">10<span class="stat-unit">维</span></span>
+            <p class="stat-label">AIGC 视频评测体系，客观指标 + LLM-as-a-judge + 人机协同</p>
+          </div>
+        </div>
+
+        <div class="highlights" data-stagger>
+          <article class="hl-card reveal">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>交叉背景</h3>
+            <p>香港城市大学 × 复旦大学（经济学院）联合培养，金融 + IT 交叉学科；修读 LLM 导论、深度学习概论、面向企业的生成式人工智能等 AI 前沿课程。</p>
+          </article>
+          <article class="hl-card reveal">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>Agent 体系化理解</h3>
+            <p>LLM 为推理内核，Function Calling 结构化对接工具与数据，叠加记忆、规划与反思构成「感知-规划-执行-反思」闭环；codex / claude code 重度使用者，有应用与 skill 开发经验。</p>
+          </article>
+          <article class="hl-card reveal">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-pulse"/></svg>评测驱动迭代</h3>
+            <p>熟悉黑盒 / 白盒评测与 P、R、F1 等指标，习惯用 Langfuse 类工具做 trace 级 bad case 定位，用数据驱动 prompt 与检索策略迭代。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ③ AI 产品知识体系 ======================= -->
+    <section class="section" id="knowledge" aria-labelledby="knowledge-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="sec-num mono">02 · KNOWLEDGE</span>
+          <h2 id="knowledge-title" class="sec-title">AI 产品知识体系</h2>
+          <p class="sec-desc">六块能力拼图：从 API 工程化到产品方法论，构成对 AI 产品的完整认知框架。</p>
+        </header>
+
+        <div class="kn-grid" data-stagger>
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>
+              <h3>Agent 与 API 工程化</h3>
+            </div>
+            <p>LLM 为推理内核，Function Calling 结构化对接工具与数据，叠加记忆、规划与反思构成「感知-规划-执行-反思」自主任务闭环。</p>
+            <ul class="chips">
+              <li class="chip chip--mono">OpenAI API</li>
+              <li class="chip chip--mono">Function Calling</li>
+              <li class="chip chip--mono">JSON Mode</li>
+              <li class="chip chip--mono">Embeddings</li>
+              <li class="chip chip--mono">ReAct</li>
+              <li class="chip chip--mono">MCP</li>
+              <li class="chip chip--mono">Multi-Agent</li>
+              <li class="chip chip--mono">跨对话记忆</li>
+            </ul>
+          </article>
+
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg>
+              <h3>模型评测</h3>
+            </div>
+            <p>理解黑盒评测（人工评估、LLM-as-a-judge、评测集回归）与白盒评测（logprobs、困惑度）的成本与适用场景，熟悉样本不均衡下的 P / R 取舍。</p>
+            <ul class="chips">
+              <li class="chip chip--mono">LLM-as-a-judge</li>
+              <li class="chip chip--mono">人工评估</li>
+              <li class="chip chip--mono">logprobs</li>
+              <li class="chip chip--mono">P / R / F1</li>
+              <li class="chip chip--mono">评测集回归</li>
+            </ul>
+          </article>
+
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-branch"/></svg>
+              <h3>算法基础</h3>
+            </div>
+            <p>理清判别式模型（建模 P(y|x)）与生成式模型（建模联合分布、逐 token 生成，LLM 即典型范式）的差异与选型逻辑；理解两阶段检索的分工。</p>
+            <ul class="chips">
+              <li class="chip chip--mono">判别式 vs 生成式</li>
+              <li class="chip chip--mono">Embedding 召回</li>
+              <li class="chip chip--mono">Reranker 精排</li>
+            </ul>
+          </article>
+
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+              <h3>搜索与 RAG</h3>
+            </div>
+            <p>从元数据过滤、TF-IDF 词袋，到 Elasticsearch / BM25 稀疏检索、双塔向量检索 + ANN 召回，理解稀疏 + 稠密混合检索的权衡。</p>
+            <ul class="chips">
+              <li class="chip chip--mono">Metadata Filter</li>
+              <li class="chip chip--mono">TF-IDF</li>
+              <li class="chip chip--mono">BM25</li>
+              <li class="chip chip--mono">Elasticsearch</li>
+              <li class="chip chip--mono">双塔模型</li>
+              <li class="chip chip--mono">ANN</li>
+              <li class="chip chip--mono">Hybrid Search</li>
+            </ul>
+          </article>
+
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-pulse"/></svg>
+              <h3>LLM 可观测性</h3>
+            </div>
+            <p>熟悉 Langfuse 类 LLM 可观测平台：全链路 trace、Prompt 版本管理与 A / B、评测集回归，能基于数据定位 bad case，驱动 prompt 与检索策略迭代。</p>
+            <ul class="chips">
+              <li class="chip chip--mono">Langfuse</li>
+              <li class="chip chip--mono">Trace</li>
+              <li class="chip chip--mono">Prompt A/B</li>
+              <li class="chip chip--mono">bad case 定位</li>
+            </ul>
+          </article>
+
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg>
+              <h3>产品方法论</h3>
+            </div>
+            <p>重视决策质量（信息不完备下基于数据与优先级权衡、复盘校准）与数据敏感度（指标异动先归因再行动）；理解产研互信与跨部门 OKR 对齐，关注 Lovart 等 AI 原生产品的工作流设计。</p>
+            <ul class="chips">
+              <li class="chip chip--mono">决策质量</li>
+              <li class="chip chip--mono">数据归因</li>
+              <li class="chip chip--mono">OKR 对齐</li>
+              <li class="chip chip--mono">AI 原生工作流</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="kn-note reveal">* 本区刻意不使用「熟练度百分比」进度条——履历未提供可量化程度，不做无依据的表达。</p>
+      </div>
+    </section>
+
+    <!-- ======================= ④ 产品案例 ======================= -->
+    <section class="section section--alt" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="sec-num mono">03 · PROJECTS</span>
+          <h2 id="projects-title" class="sec-title">产品案例</h2>
+          <p class="sec-desc">两款独立完成的 AI 项目：按 STAR 结构展开，痛点、方案与产出全部来自真实实践。</p>
+        </header>
+
+        <!-- June AI -->
+        <article class="proj-card reveal">
+          <header class="proj-head">
+            <h3>June AI<span class="proj-name-sub mono"> · AI-Inquiry-about-details</span></h3>
+            <span class="chip chip--mono">独立产品</span>
+            <a class="repo-link mono" href="https://github.com/legendofgithub/AI-Inquiry-about-details" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub 仓库<svg class="icon icon-xs" aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+          </header>
+          <p class="proj-one">「悬浮窗 + 追问链」——把线性聊天变成树状的知识探索路径。</p>
+
+          <div class="proj-body">
+            <figure class="shot">
+              <div class="shot-frame" aria-hidden="true">
+                <div class="shot-bar"><i></i><i></i><i></i></div>
+                <div class="shot-body">
+                  <div class="w-line" style="width:38%"></div>
+                  <div class="w-bubble" style="width:72%"></div>
+                  <div class="w-bubble w-bubble--ai" style="width:58%"></div>
+                  <div class="w-pop">
+                    <span class="w-tag"></span>
+                    <div class="w-line" style="width:88%"></div>
+                    <div class="w-bubble w-bubble--ai" style="width:66%"></div>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="shot-cap">产品截图位 · 线框示意图占位，后续补充真实截图</figcaption>
+            </figure>
+
+            <div class="star">
+              <div class="star-item">
+                <h4>S · 痛点</h4>
+                <p>日常 AI 学习中，传统聊天窗口的对话是线性的——疑问很难在不丢失上下文的情况下深入追问。</p>
+              </div>
+              <div class="star-item">
+                <h4>T · A｜目标与方案</h4>
+                <p>「悬浮窗 + 追问链」设计：选中 AI 回复中的文字或截图，即可打开子对话线逐层追问，形成树状知识探索路径。</p>
+              </div>
+              <div class="star-item">
+                <h4>R｜角色与产出</h4>
+                <p>独立完成：<span class="num-hl">痛点洞察</span>与<span class="num-hl">交互方案设计</span>，一人闭环。</p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="chips proj-tags">
+            <li class="chip chip--mono">交互方案设计</li>
+            <li class="chip chip--mono">痛点洞察</li>
+            <li class="chip chip--mono">树状对话</li>
+            <li class="chip chip--mono">独立打造</li>
+          </ul>
+        </article>
+
+        <!-- ai-video-eval -->
+        <article class="proj-card reveal">
+          <header class="proj-head">
+            <h3>ai-video-eval<span class="proj-name-sub mono"> · AIGC 视频评测工具</span></h3>
+            <span class="chip chip--mono">独立产品</span>
+            <a class="repo-link mono" href="https://github.com/legendofgithub/ai-video-eval" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub 仓库<svg class="icon icon-xs" aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+          </header>
+          <p class="proj-one">让「AI 视频好不好」不再只凭感觉——用体系化的评测维度说话。</p>
+
+          <div class="proj-body">
+            <figure class="shot">
+              <div class="shot-frame" aria-hidden="true">
+                <div class="shot-bar"><i></i><i></i><i></i></div>
+                <div class="shot-body shot-body--chart">
+                  <div class="w-row"><span class="w-name"></span><span class="w-track"><span class="w-fill" style="width:82%"></span></span><span class="w-score"></span></div>
+                  <div class="w-row"><span class="w-name"></span><span class="w-track"><span class="w-fill" style="width:64%"></span></span><span class="w-score"></span></div>
+                  <div class="w-row"><span class="w-name"></span><span class="w-track"><span class="w-fill" style="width:74%"></span></span><span class="w-score"></span></div>
+                  <div class="w-row"><span class="w-name"></span><span class="w-track"><span class="w-fill" style="width:55%"></span></span><span class="w-score"></span></div>
+                  <div class="w-row"><span class="w-name"></span><span class="w-track"><span class="w-fill" style="width:68%"></span></span><span class="w-score"></span></div>
+                  <div class="w-line" style="width:46%; margin-top:6px"></div>
+                </div>
+              </div>
+              <figcaption class="shot-cap">产品截图位 · 评测维度示意占位，后续补充真实截图</figcaption>
+            </figure>
+
+            <div class="star">
+              <div class="star-item">
+                <h4>S · 痛点</h4>
+                <p>AI 视频好不好不能只凭感觉——评测缺乏体系与工具支撑。</p>
+              </div>
+              <div class="star-item">
+                <h4>T · A｜目标与方案</h4>
+                <p>设计 <span class="num-hl">10</span> 个维度的评测体系：卡顿、闪烁等客观指标本地直接计算；内容理解维度交由视觉大模型判断（LLM-as-a-judge）；并配人机协同逐帧打分工作台。</p>
+              </div>
+              <div class="star-item">
+                <h4>R｜结果与特性</h4>
+                <p><span class="num-hl">单文件</span>免安装、数据<span class="num-hl">全程本地</span>，开箱即用、隐私友好。</p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="chips proj-tags">
+            <li class="chip chip--mono">评测体系设计</li>
+            <li class="chip chip--mono">LLM-as-a-judge</li>
+            <li class="chip chip--mono">客观指标计算</li>
+            <li class="chip chip--mono">人机协同</li>
+            <li class="chip chip--mono">数据本地化</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================= ⑤ 工作经历 ======================= -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="sec-num mono">04 · EXPERIENCE</span>
+          <h2 id="experience-title" class="sec-title">工作经历</h2>
+          <p class="sec-desc"><span class="chip chip--note">节选 · 共十段</span></p>
+        </header>
+
+        <ol class="timeline" data-stagger>
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>Link-x Capital（星连资本）</h3>
+                <p class="tl-role">投资助理 / 孵化器品牌增长</p>
+                <time class="tl-time mono" datetime="2026-07">2026.07 – 2026.09</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">AI 行业研究</li>
+              </ul>
+              <ul>
+                <li>担任一级市场投前行业分析师，对量化、AI4S、具身智能等 AI 前沿领域开展深度调研；参加并整理超衍智能、无界进化、小熊猫科技等项目的高管访谈，沉淀对 AI 技术商业化落地的行业认知。</li>
+                <li>在投后合作伙伴华清普智孵化器 demoday 路演活动（2026/08）中负责外联策划与信息对齐、现场统筹展位物料与路演视频；活动召集上千位投资人线下参与，流量达百万量级。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>Real Value Capital（至真资本）</h3>
+                <p class="tl-role">投资助理</p>
+                <time class="tl-time mono" datetime="2025-10">2025.10 – 2025.12</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">投资分析</li>
+              </ul>
+              <ul>
+                <li>为 Route17、Wish 等多家拟赴纳斯达克上市的公司撰写上市建议书，开展估值与行业研究。</li>
+                <li>沉淀基于 AI 工具的标准化研究模板，实现研究工作流的标准化复用。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>上海艾芒科技有限公司</h3>
+                <p class="tl-role">IT 咨询审计</p>
+                <time class="tl-time mono" datetime="2024-12">2024.12 – 2025.04</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">IT 审计</li>
+                <li class="chip chip--mono">甲方对接</li>
+              </ul>
+              <ul>
+                <li>服务中加基金、惠升基金、中航基金、国投安保等金融机构；作为公司与甲方的直接对接人收集痛点需求，组织「问题复盘会」并协调一对一专家访谈验证方案，确保问题闭环。</li>
+                <li>对 IT 系统进行全链路审计，重点审查信息技术治理、应急管理、灾备恢复等非正常场景，穷举异常路径输出审计意见；入职一周即带实习生团队对接甲方完成项目交付。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>北京汇丰盛和国际贸易有限公司</h3>
+                <p class="tl-role">行业研究员</p>
+                <time class="tl-time mono" datetime="2023-06">2023.06 – 2024.01</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">数据分析</li>
+              </ul>
+              <ul>
+                <li>对大规模氧化铝交易数据进行分析，从交易频次、订单金额、复购率等维度绘制高价值客户画像。</li>
+                <li>将分析结论转化为销售团队可落地的战术建议（如高价值用户的共同特征），协助优化销售策略、提升客户转化效率。</li>
+              </ul>
+            </article>
+          </li>
+        </ol>
+
+        <h3 class="sec-sub reveal">校内与社会实践</h3>
+        <div class="campus" data-stagger>
+          <article class="campus-card reveal">
+            <div class="tl-head">
+              <h3>线下 AI 研讨沙龙</h3>
+              <time class="tl-time mono" datetime="2025-08">2025/08 · 东莞</time>
+            </div>
+            <p>独自完成海报设计、活动方案与场地谈判，从零谈下 2 个场地方，成功举办 4 场创业分享会；与 2 位本地 KOL 达成流量合作，邀请多位初创公司嘉宾分享，保持与 AI 前沿资讯接轨。</p>
+          </article>
+          <article class="campus-card reveal">
+            <div class="tl-head">
+              <h3>大型校园公益项目</h3>
+              <time class="tl-time mono" datetime="2025-03">2025/03 · 北京</time>
+            </div>
+            <p>与校外企业联合开办并独自组建团队，完整走通「获取信息 - 决策报名 - 到场签到 - 社交互动 - 离场反馈」用户路径，定位到场率卡点并针对性迭代，到场率提升约 30%；800 余名师生参与，拉到 1000 余元赞助，活动获人民日报报道。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ⑥ 教育背景 ======================= -->
+    <section class="section section--alt" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="sec-num mono">05 · EDUCATION</span>
+          <h2 id="education-title" class="sec-title">教育背景</h2>
+        </header>
+
+        <ol class="timeline" data-stagger>
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card edu-card edu-master">
+              <div class="edu-badge mono" aria-hidden="true">CITYU<br>× FDU</div>
+              <div class="edu-body">
+                <div class="tl-head">
+                  <h3>香港城市大学 × 复旦大学（经济学院）联合培养</h3>
+                  <time class="tl-time mono" datetime="2025-09">2025.09 – 2027.06</time>
+                </div>
+                <p class="edu-degree">商务咨询系统（金融科技）理学硕士</p>
+                <ul class="chips">
+                  <li class="chip chip--hl">金融 + IT 交叉学科</li>
+                  <li class="chip">LLM 导论</li>
+                  <li class="chip">深度学习概论</li>
+                  <li class="chip">面向企业的生成式人工智能</li>
+                  <li class="chip">金融科技导论</li>
+                  <li class="chip">AI 项目质量管控</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card edu-card">
+              <div class="edu-badge mono" aria-hidden="true">CUEB</div>
+              <div class="edu-body">
+                <div class="tl-head">
+                  <h3>首都经济贸易大学</h3>
+                  <time class="tl-time mono" datetime="2021-09">2021.09 – 2025.06</time>
+                </div>
+                <p class="edu-degree">信息管理与信息系统 理学学士</p>
+              </div>
+            </article>
+          </li>
+        </ol>
+
+        <!-- ======================= ⑦ 荣誉与证书 ======================= -->
+        <h3 class="sec-sub reveal">荣誉与证书</h3>
+        <div class="honor-grid" data-stagger>
+          <article class="honor-card reveal">
+            <div class="honor-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-award"/></svg>
+              <h3>「挑战杯」商业计划竞赛 校赛二等奖</h3>
+            </div>
+            <p class="honor-meta">2024 · 团队领袖</p>
+            <p>提出 5G 共享服务系统方案；用 kimi、GPT 辅助完成市场分析，调用百度地图 API 开发并部署与系统集成的导航界面。</p>
+          </article>
+
+          <article class="honor-card reveal">
+            <div class="honor-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+              <h3>雅思 IELTS 6.5</h3>
+            </div>
+            <div class="ielts" role="img" aria-label="雅思四项小分：听力 7，阅读 7，口语 6.5，写作 6，满分 9">
+              <div class="ielts-row"><span class="mono">L</span><span class="ielts-track"><span class="ielts-fill" style="width:77.8%"></span></span><span class="mono ielts-val">7</span></div>
+              <div class="ielts-row"><span class="mono">R</span><span class="ielts-track"><span class="ielts-fill" style="width:77.8%"></span></span><span class="mono ielts-val">7</span></div>
+              <div class="ielts-row"><span class="mono">S</span><span class="ielts-track"><span class="ielts-fill" style="width:72.2%"></span></span><span class="mono ielts-val">6.5</span></div>
+              <div class="ielts-row"><span class="mono">W</span><span class="ielts-track"><span class="ielts-fill" style="width:66.7%"></span></span><span class="mono ielts-val">6</span></div>
+            </div>
+            <p class="honor-meta">海外社区（TG / Discord）重度用户，具备国际视野。</p>
+          </article>
+
+          <article class="honor-card reveal">
+            <div class="honor-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-news"/></svg>
+              <h3>媒体报道</h3>
+            </div>
+            <p class="honor-meta">人民日报</p>
+            <p>主导的大型校园公益项目（800 余名师生参与）获人民日报报道。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ⑧ 联系方式 ======================= -->
+    <section class="section section--alt section-contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <header class="section-head reveal contact-head">
+          <span class="sec-num mono">06 · CONTACT</span>
+          <h2 id="contact-title" class="contact-title">期待与你在 AI 浪潮中相遇</h2>
+          <p class="contact-sub">如果你在做 Agent、模型评测或 AI 产品，欢迎聊聊——邮箱是最快找到我的方式。</p>
+        </header>
+
+<!-- 邮箱本地部分用 HTML 实体分段书写（解析后为完整邮箱），避免源码中出现连续 11 位手机号样式数字串 -->
+        <a class="btn btn-primary btn-mail reveal" href="mailto:156116&#56;1756@163.com">
+          <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>给我发邮件
+        </a>
+
+        <div class="contact-cards" data-stagger>
+          <div class="contact-card reveal">
+            <p class="contact-label"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>邮箱</p>
+            <button type="button" class="contact-btn" data-copy="156116&#56;1756@163.com">
+              <span class="contact-value mono">156116&#56;1756@163.com</span>
+              <span class="copy-tip" aria-live="polite"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>点击复制</span>
+            </button>
+          </div>
+
+          <div class="contact-card reveal">
+            <p class="contact-label"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</p>
+            <a class="contact-btn" href="https://github.com/legendofgithub" target="_blank" rel="noopener noreferrer">
+              <span class="contact-value mono">github.com/legendofgithub</span>
+              <span class="copy-tip"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-external"/></svg>访问主页</span>
+            </a>
+            <p class="repo-links">直达仓库：<a href="https://github.com/legendofgithub/AI-Inquiry-about-details" target="_blank" rel="noopener noreferrer">June AI</a> · <a href="https://github.com/legendofgithub/ai-video-eval" target="_blank" rel="noopener noreferrer">ai-video-eval</a></p>
+          </div>
+        </div>
+
+        <p class="quick-facts reveal">
+          期望 base：北京 / 上海&nbsp;&nbsp;·&nbsp;&nbsp;目标岗位：AI 产品经理（大模型应用 / Agent 方向）/ AI 训练师 / AI 行业研究员
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= 页脚 ======================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 丁博文 · 原生 HTML / CSS / JS 手写，无框架依赖</p>
+      <div class="footer-actions">
+        <button type="button" class="text-btn" data-theme-toggle>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          主题切换
+        </button>
+        <button type="button" class="text-btn" data-back-top>
+          <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg>
+          回到顶部
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部悬浮按钮 -->
+  <button type="button" class="back-top" data-back-top aria-label="回到顶部">
+    <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg>
+  </button>
+</body>
+</html>
