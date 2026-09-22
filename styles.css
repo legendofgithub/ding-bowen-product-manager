@@ -1014,22 +1014,7 @@ a.contact-btn:hover .contact-value { color: var(--accent-text); }
 .ev-title-doodle { color: var(--accent-text); font-size: 0.55em; vertical-align: 0.5em; animation: ev-spin 6s linear infinite; display: inline-block; }
 @keyframes ev-spin { to { transform: rotate(360deg); } }
 
-.ev-ticker {
-  overflow: hidden;
-  border-block: 1px dashed var(--border);
-  padding: 10px 0;
-  margin: 6px 0 34px;
-}
-.ev-ticker-inner {
-  display: inline-flex; align-items: center; gap: 26px;
-  white-space: nowrap; width: max-content;
-  animation: ev-marquee 26s linear infinite;
-  color: var(--muted); font-size: 0.92rem; letter-spacing: 0.04em;
-}
-.ev-ticker-inner i { color: var(--accent-text); font-style: normal; font-size: 0.7em; }
-.ev-ticker:hover .ev-ticker-inner { animation-play-state: paused; }
-@keyframes ev-marquee { to { transform: translateX(-50%); } }
-
+.ev-ticker:hover 
 .ev-wall { columns: 3 280px; column-gap: 26px; }
 .ev-card {
   position: relative;
@@ -1082,6 +1067,6 @@ a.contact-btn:hover .contact-value { color: var(--accent-text); }
 .ev-card:hover .ev-chip { transform: rotate(-4deg) scale(1.08); background: color-mix(in srgb, var(--accent) 26%, transparent); }
 
 @media (prefers-reduced-motion: reduce) {
-  .ev-ticker-inner, .ev-title-doodle { animation: none; }
+  .ev-title-doodle { animation: none; }
   .ev-card, .ev-ph img, .ev-chip { transition: none; }
 }
