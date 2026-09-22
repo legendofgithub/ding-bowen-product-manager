@@ -206,7 +206,7 @@
   var BOARD_KEYS = ['pm', 'fintech', 'eval'];
   var BOARD_CONF = {
     pm: {
-      title: 'AI 产品经理',
+      title: '金融 × AI 复合背景',
       phrases: ['Agent 产品设计', 'LLM 评测与可观测性', 'RAG 与检索', '金融 × AI 交叉背景'],
       sr: '专注方向：Agent 产品设计、LLM 评测与可观测性、RAG 与检索、金融 × AI 交叉背景',
       quick: '期望 base：北京 / 上海&nbsp;&nbsp;·&nbsp;&nbsp;目标岗位：AI 产品经理（大模型应用 / Agent 方向）/ AI 训练师 / AI 行业研究员'
