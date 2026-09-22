@@ -417,6 +417,7 @@ body.has-drawer { overflow: hidden; }
   position: relative;
   z-index: 1;
   width: 100%;
+  height: auto; /* 覆盖 HTML height 属性的呈现提示，否则 aspect-ratio 失效、照片被裁成竖条 */
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border: 1px solid var(--border);
