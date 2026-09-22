@@ -982,3 +982,29 @@ a.contact-btn:hover .contact-value { color: var(--accent-text); }
   .board-tab { flex: 0 0 auto; padding: 8px 16px; }
   .bt-sub { display: none; }
 }
+
+/* ---------- AIGC 视频跳转标签（链接式，非 tab） ---------- */
+.board-jump {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--muted);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.board-jump:hover {
+  border-color: var(--accent-text);
+  color: var(--heading);
+  box-shadow: var(--shadow-sm);
+  background: var(--tag-bg);
+}
+.board-jump .bj-arrow { color: var(--accent-text); font-size: 0.85em; margin-left: 2px; }
+@media (max-width: 860px) {
+  .board-jump { flex: 0 0 auto; padding: 8px 16px; }
+}
