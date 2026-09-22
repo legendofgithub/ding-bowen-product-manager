@@ -17,15 +17,15 @@
     })();
   </script>
 
-  <title>丁博文 · AI 产品经理 | 个人网站</title>
-  <meta name="description" content="丁博文的个人网站：AI 产品经理求职作品集。香港城市大学 × 复旦大学金融科技硕士（2027 届），十段实习覆盖 AI 行业研究、投资分析、IT 咨询审计与数据分析，独立打造 June AI 与 ai-video-eval 两款 AI 产品，具备 Agent、模型评测、RAG 检索与 LLM 可观测性的体系化知识。">
-  <meta name="keywords" content="丁博文, AI 产品经理, 个人网站, 项目, 教育, 作品集, Agent, RAG, LLM 评测, 金融科技">
+  <title>丁博文 · AI 产品经理 / 金融科技 / 大模型评测 | 个人网站</title>
+  <meta name="description" content="丁博文的个人网站：三个求职方向一键切换——AI 产品经理、金融科技、大模型评测。香港城市大学 × 复旦大学金融科技硕士（2027 届），十段实习覆盖 AI 行业研究、投资分析、IT 咨询审计、数据库测试与数据分析，独立打造 June AI 与 ai-video-eval 两款 AI 产品。">
+  <meta name="keywords" content="丁博文, AI 产品经理, 金融科技, 大模型评测, 模型效果评估, 个人网站, 作品集, Agent, RAG, LLM 评测">
   <meta name="author" content="丁博文">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:title" content="丁博文 · AI 产品经理">
-  <meta property="og:description" content="香港城市大学 × 复旦大学金融科技硕士 · 2027 届｜十段实习 · 两款独立 AI 产品（June AI / ai-video-eval）">
+  <meta property="og:title" content="丁博文 · AI 产品经理 / 金融科技 / 大模型评测">
+  <meta property="og:description" content="香港城市大学 × 复旦大学金融科技硕士 · 2027 届｜三个求职方向一键切换：AI 产品经理 / 金融科技 / 大模型评测｜十段实习 · 两款独立 AI 产品">
   <meta property="og:url" content="https://dingbowen.tech/">
   <meta property="og:image" content="https://dingbowen.tech/assets/profile.jpeg">
 
@@ -90,9 +90,9 @@
       <ul class="nav-list">
         <li><a class="nav-link" href="#home">首页</a></li>
         <li><a class="nav-link" href="#about">关于我</a></li>
-        <li><a class="nav-link" href="#knowledge">知识体系</a></li>
+        <li><a class="nav-link" href="#pm-knowledge" data-sec="knowledge">知识体系</a></li>
         <li><a class="nav-link" href="#projects">产品案例</a></li>
-        <li><a class="nav-link" href="#experience">工作经历</a></li>
+        <li><a class="nav-link" href="#pm-experience" data-sec="experience">工作经历</a></li>
         <li><a class="nav-link" href="#education">教育</a></li>
         <li><a class="nav-link" href="#contact">联系</a></li>
       </ul>
@@ -115,9 +115,9 @@
     <ul>
       <li><a class="nav-link" href="#home">首页</a></li>
       <li><a class="nav-link" href="#about">关于我</a></li>
-      <li><a class="nav-link" href="#knowledge">知识体系</a></li>
+      <li><a class="nav-link" href="#pm-knowledge" data-sec="knowledge">知识体系</a></li>
       <li><a class="nav-link" href="#projects">产品案例</a></li>
-      <li><a class="nav-link" href="#experience">工作经历</a></li>
+      <li><a class="nav-link" href="#pm-experience" data-sec="experience">工作经历</a></li>
       <li><a class="nav-link" href="#education">教育</a></li>
       <li><a class="nav-link" href="#contact">联系</a></li>
     </ul>
@@ -130,13 +130,13 @@
       <div class="container hero-grid">
         <div class="hero-text reveal">
           <p class="hero-eyebrow">你好，我是丁博文</p>
-          <h1>AI 产品经理</h1>
+          <h1 id="hero-title">AI 产品经理</h1>
           <p class="hero-sub">香港城市大学 × 复旦大学 金融科技硕士 · 2027 届</p>
 
           <p class="hero-typed">
             <span class="typed-prompt mono" aria-hidden="true">&gt;_</span>
             <span id="typed" aria-hidden="true"></span><span class="cursor" aria-hidden="true"></span>
-            <span class="sr-only">专注方向：Agent 产品设计、LLM 评测与可观测性、RAG 与检索、金融 × AI 交叉背景</span>
+            <span class="sr-only" id="hero-sr">专注方向：Agent 产品设计、LLM 评测与可观测性、RAG 与检索、金融 × AI 交叉背景</span>
           </p>
 
           <ul class="hero-chips" aria-label="履历速览">
@@ -168,6 +168,26 @@
       </a>
     </section>
 
+    <!-- ======================= 方向看板 · 顶部切换标签 ======================= -->
+    <div class="board-tabs-wrap" id="boards">
+      <div class="container">
+        <div class="board-tabs" role="tablist" aria-label="求职方向切换">
+          <button type="button" class="board-tab is-active" role="tab" id="tab-pm" aria-controls="board-pm" aria-selected="true" data-board="pm">
+            <span class="bt-name">AI 产品经理</span>
+            <span class="bt-sub">大模型应用 · Agent 方向</span>
+          </button>
+          <button type="button" class="board-tab" role="tab" id="tab-fintech" aria-controls="board-fintech" aria-selected="false" tabindex="-1" data-board="fintech">
+            <span class="bt-name">金融科技</span>
+            <span class="bt-sub">VC · PE · 一级市场</span>
+          </button>
+          <button type="button" class="board-tab" role="tab" id="tab-eval" aria-controls="board-eval" aria-selected="false" tabindex="-1" data-board="eval">
+            <span class="bt-name">大模型评测</span>
+            <span class="bt-sub">模型效果评估 · AI 产品评测</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- ======================= ② 关于我 ======================= -->
     <section class="section section--alt" id="about" aria-labelledby="about-title">
       <div class="container">
@@ -198,8 +218,21 @@
             <p class="stat-label">AIGC 视频评测体系，客观指标 + LLM-as-a-judge + 人机协同</p>
           </div>
         </div>
+    </div>
+  </section>
 
-        <div class="highlights" data-stagger>
+    <!-- ======================= 方向板块 · AI 产品经理 ======================= -->
+    <section class="board" id="board-pm" role="tabpanel" aria-labelledby="tab-pm">
+
+      <!-- 方向定位 -->
+      <div class="section board-intro">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="sec-num mono">02 · TRACK</span>
+            <h2 class="sec-title" id="pm-intro-title">方向 · AI 产品经理</h2>
+            <p class="sec-desc board-goal"><span class="chip chip--hl">目标岗位</span>AI 产品经理（大模型应用 / Agent 方向） · AI 训练师 · AI 行业研究员</p>
+          </header>
+          <div class="highlights" data-stagger>
           <article class="hl-card reveal">
             <h3><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>交叉背景</h3>
             <p>香港城市大学 × 复旦大学（经济学院）联合培养，金融 + IT 交叉学科；修读 LLM 导论、深度学习概论、面向企业的生成式人工智能等 AI 前沿课程。</p>
@@ -213,15 +246,15 @@
             <p>熟悉黑盒 / 白盒评测与 P、R、F1 等指标，习惯用 Langfuse 类工具做 trace 级 bad case 定位，用数据驱动 prompt 与检索策略迭代。</p>
           </article>
         </div>
+        </div>
       </div>
-    </section>
 
-    <!-- ======================= ③ AI 产品知识体系 ======================= -->
-    <section class="section" id="knowledge" aria-labelledby="knowledge-title">
+  <!-- 知识体系（AI 产品经理） -->
+    <section class="section section--alt" id="pm-knowledge" aria-labelledby="pm-knowledge-title">
       <div class="container">
         <header class="section-head reveal">
           <span class="sec-num mono">02 · KNOWLEDGE</span>
-          <h2 id="knowledge-title" class="sec-title">AI 产品知识体系</h2>
+          <h2 id="pm-knowledge-title" class="sec-title">AI 产品知识体系</h2>
           <p class="sec-desc">六块能力拼图：从 API 工程化到产品方法论，构成对 AI 产品的完整认知框架。</p>
         </header>
 
@@ -322,11 +355,563 @@
       </div>
     </section>
 
-    <!-- ======================= ④ 产品案例 ======================= -->
+  <!-- 工作经历（AI 产品经理视角） -->
+    <section class="section" id="pm-experience" aria-labelledby="pm-experience-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="sec-num mono">03 · EXPERIENCE</span>
+          <h2 id="pm-experience-title" class="sec-title">工作经历</h2>
+          <p class="sec-desc"><span class="chip chip--note">节选 · 共十段</span></p>
+        </header>
+
+        <ol class="timeline" data-stagger>
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>Link-x Capital（星连资本）</h3>
+                <p class="tl-role">投资助理 / 孵化器品牌增长</p>
+                <time class="tl-time mono" datetime="2026-07">2026.07 – 2026.09</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">AI 行业研究</li>
+              </ul>
+              <ul>
+                <li>担任一级市场投前行业分析师，对量化、AI4S、具身智能等 AI 前沿领域开展深度调研；参加并整理超衍智能、无界进化、小熊猫科技等项目的高管访谈，沉淀对 AI 技术商业化落地的行业认知。</li>
+                <li>在投后合作伙伴华清普智孵化器 demoday 路演活动（2026/08）中负责外联策划与信息对齐、现场统筹展位物料与路演视频；活动召集上千位投资人线下参与，流量达百万量级。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>Real Value Capital（至真资本）</h3>
+                <p class="tl-role">投资助理</p>
+                <time class="tl-time mono" datetime="2025-10">2025.10 – 2025.12</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">投资分析</li>
+              </ul>
+              <ul>
+                <li>为 Route17、Wish 等多家拟赴纳斯达克上市的公司撰写上市建议书，开展估值与行业研究。</li>
+                <li>沉淀基于 AI 工具的标准化研究模板，实现研究工作流的标准化复用。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>上海艾芒科技有限公司</h3>
+                <p class="tl-role">IT 咨询审计</p>
+                <time class="tl-time mono" datetime="2024-12">2024.12 – 2025.04</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">IT 审计</li>
+                <li class="chip chip--mono">甲方对接</li>
+              </ul>
+              <ul>
+                <li>服务中加基金、惠升基金、中航基金、国投安保等金融机构；作为公司与甲方的直接对接人收集痛点需求，组织「问题复盘会」并协调一对一专家访谈验证方案，确保问题闭环。</li>
+                <li>对 IT 系统进行全链路审计，重点审查信息技术治理、应急管理、灾备恢复等非正常场景，穷举异常路径输出审计意见；入职一周即带实习生团队对接甲方完成项目交付。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>北京汇丰盛和国际贸易有限公司</h3>
+                <p class="tl-role">行业研究员</p>
+                <time class="tl-time mono" datetime="2023-06">2023.06 – 2024.01</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">数据分析</li>
+              </ul>
+              <ul>
+                <li>对大规模氧化铝交易数据进行分析，从交易频次、订单金额、复购率等维度绘制高价值客户画像。</li>
+                <li>将分析结论转化为销售团队可落地的战术建议（如高价值用户的共同特征），协助优化销售策略、提升客户转化效率。</li>
+              </ul>
+            </article>
+          </li>
+        </ol>
+
+        <h3 class="sec-sub reveal">校内与社会实践</h3>
+        <div class="campus" data-stagger>
+          <article class="campus-card reveal">
+            <div class="tl-head">
+              <h3>线下 AI 研讨沙龙</h3>
+              <time class="tl-time mono" datetime="2025-08">2025/08 · 东莞</time>
+            </div>
+            <p>独自完成海报设计、活动方案与场地谈判，从零谈下 2 个场地方，成功举办 4 场创业分享会；与 2 位本地 KOL 达成流量合作，邀请多位初创公司嘉宾分享，保持与 AI 前沿资讯接轨。</p>
+          </article>
+          <article class="campus-card reveal">
+            <div class="tl-head">
+              <h3>大型校园公益项目</h3>
+              <time class="tl-time mono" datetime="2025-03">2025/03 · 北京</time>
+            </div>
+            <p>与校外企业联合开办并独自组建团队，完整走通「获取信息 - 决策报名 - 到场签到 - 社交互动 - 离场反馈」用户路径，定位到场率卡点并针对性迭代，到场率提升约 30%；800 余名师生线下参与，拉到 1000 余元赞助，活动获人民日报报道。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    </section>
+
+    <!-- ======================= 方向板块 · 金融科技 ======================= -->
+    <section class="board" id="board-fintech" role="tabpanel" aria-labelledby="tab-fintech" hidden>
+
+      <!-- 方向定位 -->
+      <div class="section board-intro">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="sec-num mono">02 · TRACK</span>
+            <h2 class="sec-title" id="fintech-intro-title">方向 · 金融科技</h2>
+            <p class="sec-desc board-goal"><span class="chip chip--hl">目标岗位</span>VC · PE · 金融科技</p>
+          </header>
+          <div class="highlights" data-stagger>
+            <article class="hl-card reveal">
+              <h3><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>金融 + IT 交叉背景</h3>
+              <p>香港城市大学 × 复旦大学（经济学院）联合培养，金融 + IT 交叉学科；本科修读 CFA 证书班，对财报、投资、IPO / pre-IPO 等领域进行过系统学习。</p>
+            </article>
+            <article class="hl-card reveal">
+              <h3><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>十余段实习 · 完整项目闭环</h3>
+              <p>十段实习覆盖一级市场投研、美股上市建议书、IT 咨询审计与大宗商品研究；对行研类工作尤其感兴趣，自学多个行研框架、研读多篇研报，形成自己的研究框架。</p>
+            </article>
+            <article class="hl-card reveal">
+              <h3><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>AI 工具放大研究效率</h3>
+              <p>codex / claude code 等 Agent 工具重度使用者，有应用与 skill 开发经验；对 RAG 技术、Agent 跨对话记忆机制设计有深入了解，持续关注国内外 AI 创新对金融行业的赋能。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- 知识体系（金融科技） -->
+      <section class="section section--alt" id="fintech-knowledge" aria-labelledby="fintech-knowledge-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="sec-num mono">02 · KNOWLEDGE</span>
+            <h2 id="fintech-knowledge-title" class="sec-title">金融科技知识体系</h2>
+            <p class="sec-desc">金融基础 × 研究方法 × 估值建模 × AI 工程化，构成一级市场研究的基本功。</p>
+          </header>
+
+          <div class="kn-grid" data-stagger>
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>
+                <h3>金融基础</h3>
+              </div>
+              <p>本科修读 CFA 证书班，对金融领域进行系统学习，熟悉财报、投资、IPO、pre-IPO 等领域基础知识。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">CFA 证书班</li>
+                <li class="chip chip--mono">财报分析</li>
+                <li class="chip chip--mono">IPO / pre-IPO</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+                <h3>行业研究方法</h3>
+              </div>
+              <p>自学多个行研框架，研究阅读多篇研报；在氧化铝行业研究与美股上市建议书写作中反复打磨，形成自己的行研框架。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">行研框架</li>
+                <li class="chip chip--mono">研报阅读</li>
+                <li class="chip chip--mono">行业对比</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg>
+                <h3>估值与建模</h3>
+              </div>
+              <p>掌握 PB、PE 等相对估值与绝对估值方法，掌握基础 Excel 建模，在多家拟上市公司估值实践中落地。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">PB / PE</li>
+                <li class="chip chip--mono">相对 + 绝对估值</li>
+                <li class="chip chip--mono">Excel 建模</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>
+                <h3>金融终端</h3>
+              </div>
+              <p>对 Wind、Bloomberg 等金融终端的使用有了解，配合数据交叉验证支撑研究结论。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">Wind</li>
+                <li class="chip chip--mono">Bloomberg</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>
+                <h3>AI 工程化</h3>
+              </div>
+              <p>擅长 Agent 生态办公产出各类报告；对 RAG 技术、Agent 跨对话记忆机制设计有深入了解，用 AI 工具放大研究与写作效率。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">codex / claude code</li>
+                <li class="chip chip--mono">RAG</li>
+                <li class="chip chip--mono">Agent 记忆机制</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
+                <h3>协作与表达</h3>
+              </div>
+              <p>深度飞书办公经验，擅长 Google 生态协作；多次代表公司与甲方高管直接对话，擅长演讲与观点表达。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">飞书</li>
+                <li class="chip chip--mono">Google 生态</li>
+                <li class="chip chip--mono">演讲表达</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 工作经历（金融科技视角） -->
+      <section class="section" id="fintech-experience" aria-labelledby="fintech-experience-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="sec-num mono">03 · EXPERIENCE</span>
+            <h2 id="fintech-experience-title" class="sec-title">工作经历</h2>
+            <p class="sec-desc"><span class="chip chip--note">节选 · 共十段</span></p>
+          </header>
+
+          <ol class="timeline" data-stagger>
+            <li class="tl-item reveal">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card">
+                <div class="tl-head">
+                  <h3>Link-x Capital（星连资本）</h3>
+                  <p class="tl-role">投资助理 / 孵化器品牌增长</p>
+                  <time class="tl-time mono" datetime="2026-07">2026.07 – 2026.09</time>
+                </div>
+                <ul class="tl-meta">
+                  <li class="chip chip--mono">一级市场投研</li>
+                </ul>
+                <ul>
+                  <li>担任一级市场投前行业分析师，对量化、AI4S、具身智能等多个领域开展深度调研与学习；参加并整理超衍智能、无界进化、小熊猫科技等项目的高管访谈。</li>
+                  <li>在投后合作伙伴华清普智孵化器 demoday 路演活动（2026/08）中负责外联策划与信息对齐，现场统筹展位物料与路演视频交付；活动召集上千位投资人线下参与，流量达百万量级。</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="tl-item reveal">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card">
+                <div class="tl-head">
+                  <h3>Real Value Capital（至真资本）</h3>
+                  <p class="tl-role">投资助理</p>
+                  <time class="tl-time mono" datetime="2025-10">2025.10 – 2025.12</time>
+                </div>
+                <ul class="tl-meta">
+                  <li class="chip chip--mono">投资分析</li>
+                  <li class="chip chip--mono">美股 IPO</li>
+                </ul>
+                <ul>
+                  <li>为 Route17、Wish、东京百易大连、威斯制造等多家拟赴纳斯达克上市的公司撰写上市建议书，进行公司估值与行业研究。</li>
+                  <li>掌握 PB、PE 等相对与绝对估值方法，对行业研究报告撰写形成自己的框架；为公司沉淀标准化上市建议书模板，并撰写销售合伙人培训材料。</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="tl-item reveal">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card">
+                <div class="tl-head">
+                  <h3>上海艾芒科技有限公司</h3>
+                  <p class="tl-role">IT 咨询审计</p>
+                  <time class="tl-time mono" datetime="2024-12">2024.12 – 2025.04</time>
+                </div>
+                <ul class="tl-meta">
+                  <li class="chip chip--mono">金融机构服务</li>
+                </ul>
+                <ul>
+                  <li>服务中加基金、惠升基金、中航基金、国投安保等金融机构：审查信息技术治理、应急管理、重要信息系统等审计项，汇总问题、得出审计意见并向甲方交付。</li>
+                  <li>作为公司代表直接对接甲方技术团队，拿不准的问题随时发起一对一专家访谈交叉确认；入职一周即带教新实习生并牵头推进项目交付。</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="tl-item reveal">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card">
+                <div class="tl-head">
+                  <h3>北京汇丰盛和国际贸易有限公司</h3>
+                  <p class="tl-role">行业研究员</p>
+                  <time class="tl-time mono" datetime="2023-06">2023.06 – 2024.01</time>
+                </div>
+                <ul class="tl-meta">
+                  <li class="chip chip--mono">行业研究</li>
+                </ul>
+                <ul>
+                  <li>对大规模氧化铝交易数据进行分析，以交易频次、订单金额、复购率等维度识别高价值客户，为销售团队提供战略性见解。</li>
+                  <li>对氧化铝产业开展行业研究，系统学习行研技巧框架与研报撰写方法；掌握 PB、PE 等估值方法与基础 Excel 建模，了解 Wind、Bloomberg 终端，并为公司发展方向提供建议。</li>
+                </ul>
+              </article>
+            </li>
+          </ol>
+
+          <h3 class="sec-sub reveal">校内与社会实践</h3>
+          <div class="campus" data-stagger>
+            <article class="campus-card reveal">
+              <div class="tl-head">
+                <h3>大型校园公益项目</h3>
+                <time class="tl-time mono" datetime="2025-03">2025/03 · 北京</time>
+              </div>
+              <p>与校外企业联合开办并独自组建团队，从地推位置与宣发策略调整入手，最终 800 余名师生线下参与，为社团拉到 1000 余元经费赞助；活动获人民日报报道，该校外机构此后与社团达成长期深度合作。</p>
+            </article>
+            <article class="campus-card reveal">
+              <div class="tl-head">
+                <h3>首都经济贸易大学 乒协主席</h3>
+                <time class="tl-time mono" datetime="2023-09">2023.09 – 2025.06</time>
+              </div>
+              <p>开展校内乒乓球联赛，负责干部任命、活动策划、物品采购与外联；所在学院蝉联院系杯团体前三，个人蝉联单打前二。</p>
+            </article>
+            <article class="campus-card reveal">
+              <div class="tl-head">
+                <h3>港城大学生事务处 科协负责人</h3>
+                <time class="tl-time mono" datetime="2026-03">2026.03 – 2026.06</time>
+              </div>
+              <p>负责学生事务处创新创业主题活动组织开展的协助工作，以及科技创新协会章程撰写与协会架构落地。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ======================= 方向板块 · 大模型评测 ======================= -->
+    <section class="board" id="board-eval" role="tabpanel" aria-labelledby="tab-eval" hidden>
+
+      <!-- 方向定位 -->
+      <div class="section board-intro">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="sec-num mono">02 · TRACK</span>
+            <h2 class="sec-title" id="eval-intro-title">方向 · 大模型评测</h2>
+            <p class="sec-desc board-goal"><span class="chip chip--hl">目标岗位</span>大模型评测 · 模型效果评估 · AI 产品评测</p>
+            <p class="board-brief reveal">习惯把模糊的技术判断拆成可验证的结构化结论，并沉淀为报告与检查清单；可直接阅读英文论文与技术报告，希望参与评测执行、结果分析与跨团队沟通。</p>
+          </header>
+          <div class="highlights" data-stagger>
+            <article class="hl-card reveal">
+              <h3><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg>评测方法论体系</h3>
+              <p>系统学习大模型评测方法论与主流 Benchmark 生态（MMLU、C-Eval、CMMLU、MT-Bench 等），理解 LLM-as-a-judge、人工评审校准、badcase 归因、数据污染等核心评测议题。</p>
+            </article>
+            <article class="hl-card reveal">
+              <h3><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>从数据到效果的完整链路</h3>
+              <p>修读 SQL 基础、深度学习概论、面向企业的生成式人工智能、AI 项目质量管控等课程，理解从数据质量到模型效果验证的完整链路。</p>
+            </article>
+            <article class="hl-card reveal">
+              <h3><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>AI 工具一线体感</h3>
+              <p>codex / Z-code 等 Agent 工具重度使用者，熟练开发应用与 skill；曾在智谱生态的资方与孵化器（星连资本、华清普智）实习，有用 AI 工具放大评测与研究效率的一线体感。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- 知识体系（大模型评测） -->
+      <section class="section section--alt" id="eval-knowledge" aria-labelledby="eval-knowledge-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="sec-num mono">02 · KNOWLEDGE</span>
+            <h2 id="eval-knowledge-title" class="sec-title">评测知识体系</h2>
+            <p class="sec-desc">方法论 × Benchmark × 模型基础 × 测试工程，围绕「模型能力如何被可靠度量」展开。</p>
+          </header>
+
+          <div class="kn-grid" data-stagger>
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg>
+                <h3>评测方法论</h3>
+              </div>
+              <p>理解 LLM-as-a-judge、人工评审校准、badcase 归因与数据污染识别等核心议题，知道每种方法的能力边界与适用场景。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">LLM-as-a-judge</li>
+                <li class="chip chip--mono">人工评审校准</li>
+                <li class="chip chip--mono">badcase 归因</li>
+                <li class="chip chip--mono">数据污染</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-target"/></svg>
+                <h3>Benchmark 生态</h3>
+              </div>
+              <p>系统学习 MMLU、C-Eval、CMMLU、MT-Bench 等主流基准；创办过 AI 主题社群，持续跟踪海内外新模型发布与评测榜单动态。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">MMLU</li>
+                <li class="chip chip--mono">C-Eval / CMMLU</li>
+                <li class="chip chip--mono">MT-Bench</li>
+                <li class="chip chip--mono">榜单跟踪</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-branch"/></svg>
+                <h3>模型基础</h3>
+              </div>
+              <p>了解 Transformer 架构与大模型基本原理，理解模型能力边界与典型失效模式；遇到异常输出愿意追问到底，区分事实与推测。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">Transformer</li>
+                <li class="chip chip--mono">能力边界</li>
+                <li class="chip chip--mono">失效模式</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg>
+                <h3>前沿方向</h3>
+              </div>
+              <p>熟悉 Agent、Tool Calling、RAG 等前沿方向的原理与评测要点，能针对应用形态设计对应的评测维度。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">Agent</li>
+                <li class="chip chip--mono">Tool Calling</li>
+                <li class="chip chip--mono">RAG</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-pulse"/></svg>
+                <h3>测试工程</h3>
+              </div>
+              <p>数据库测试岗完整实践：冒烟测试、多轮功能测试、测试反馈文档；主动学习 Python 自动化测试，实现部分场景的自动化回归。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">冒烟 / 功能测试</li>
+                <li class="chip chip--mono">Python 自动化回归</li>
+                <li class="chip chip--mono">缺陷闭环</li>
+              </ul>
+            </article>
+
+            <article class="kn-card reveal">
+              <div class="kn-head">
+                <svg class="icon" aria-hidden="true"><use href="#i-cube"/></svg>
+                <h3>评测工具实践</h3>
+              </div>
+              <p>独立开发 ai-video-eval（AIGC 视频评测工具）：客观指标本地计算 + 视觉大模型判断 + 人机协同工作台，评测方法论的一次完整产品化落地。</p>
+              <ul class="chips">
+                <li class="chip chip--mono">评测体系设计</li>
+                <li class="chip chip--mono">LLM-as-a-judge 落地</li>
+                <li class="chip chip--mono">人机协同</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 工作经历（评测视角） -->
+      <section class="section" id="eval-experience" aria-labelledby="eval-experience-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="sec-num mono">03 · EXPERIENCE</span>
+            <h2 id="eval-experience-title" class="sec-title">工作经历</h2>
+            <p class="sec-desc"><span class="chip chip--note">节选 · 共十段</span></p>
+          </header>
+
+          <ol class="timeline" data-stagger>
+            <li class="tl-item reveal">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card">
+                <div class="tl-head">
+                  <h3>优炫软件科技有限公司</h3>
+                  <p class="tl-role">数据库测试</p>
+                  <time class="tl-time mono" datetime="2023-08">2023.08 – 2023.11</time>
+                </div>
+                <ul class="tl-meta">
+                  <li class="chip chip--mono">测试工程</li>
+                </ul>
+                <ul>
+                  <li>承担数据库项目 Demo 到上线前的全周期测试：执行冒烟测试与多轮功能测试，编写测试反馈文档，联动产品团队完成缺陷沟通与闭环跟进。</li>
+                  <li>主动学习 Python 自动化测试，编写脚本实现部分测试场景的自动化回归，降低重复测试成本；过程中熟悉 PRD 完整结构，建立产品思维与测试思维。</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="tl-item reveal">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card">
+                <div class="tl-head">
+                  <h3>上海艾芒科技有限公司</h3>
+                  <p class="tl-role">IT 咨询审计</p>
+                  <time class="tl-time mono" datetime="2024-12">2024.12 – 2025.04</time>
+                </div>
+                <ul class="tl-meta">
+                  <li class="chip chip--mono">质量核查</li>
+                  <li class="chip chip--mono">结构化结论</li>
+                </ul>
+                <ul>
+                  <li>为多所金融机构提供 IT 咨询审计：依据审计标准对信息技术治理、应急管理、重要信息系统等控制项逐项核查，定位偏差、分析归因，形成结构化审计报告并向甲方交付。</li>
+                  <li>作为公司代表直接对接甲方技术团队，对拿不准的问题主动发起一对一专家访谈交叉确认；入职一周即带教新实习生、牵头推进项目交付。</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="tl-item reveal">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <article class="tl-card">
+                <div class="tl-head">
+                  <h3>Link-x Capital（星连资本）</h3>
+                  <p class="tl-role">AI 投资助理</p>
+                  <time class="tl-time mono" datetime="2026-07">2026.07 – 2026.09</time>
+                </div>
+                <ul class="tl-meta">
+                  <li class="chip chip--mono">技术评估</li>
+                </ul>
+                <ul>
+                  <li>对大模型、生物医药、具身智能等 AI 赛道开展投前深度调研：拆解标的公司技术路线、产品能力与团队背景，把模糊的技术判断拆成可验证的结构化评估结论。</li>
+                  <li>参与超衍智能、无界进化、小熊猫科技等项目的高管访谈并整理纪要；参与华清普智孵化器 demoday 路演策划与执行，负责信息对齐与现场交付协调。</li>
+                </ul>
+              </article>
+            </li>
+          </ol>
+
+          <h3 class="sec-sub reveal">校内与社会实践</h3>
+          <div class="campus" data-stagger>
+            <article class="campus-card reveal">
+              <div class="tl-head">
+                <h3>大型校园公益项目</h3>
+                <time class="tl-time mono" datetime="2025-03">2025/03 · 北京</time>
+              </div>
+              <p>独自组建团队置办物料并开展线下地推与线上宣发；从曝光不足到调整地推位置与活动档期，最终 800 余名师生线下参与、拉到 1000 余元赞助，活动获人民日报报道。</p>
+            </article>
+            <article class="campus-card reveal">
+              <div class="tl-head">
+                <h3>首都经济贸易大学 乒协主席</h3>
+                <time class="tl-time mono" datetime="2023-09">2023.09 – 2025.06</time>
+              </div>
+              <p>开展校内乒乓球联赛，负责干部任命、活动策划、物品采购与外联；所在学院蝉联院系杯团体前三，个人蝉联单打前二。</p>
+            </article>
+            <article class="campus-card reveal">
+              <div class="tl-head">
+                <h3>港城大学生事务处 科协负责人</h3>
+                <time class="tl-time mono" datetime="2026-03">2026.03 – 2026.06</time>
+              </div>
+              <p>负责创新创业主题活动组织开展的协助工作，以及科技创新协会章程撰写与协会架构落地。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ======================= ④ 产品案例（三方向共享） ======================= -->
     <section class="section section--alt" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <header class="section-head reveal">
-          <span class="sec-num mono">03 · PROJECTS</span>
+          <span class="sec-num mono">04 · PROJECTS</span>
           <h2 id="projects-title" class="sec-title">产品案例</h2>
           <p class="sec-desc">两款独立完成的 AI 项目：按 STAR 结构展开，痛点、方案与产出全部来自真实实践。</p>
         </header>
@@ -438,112 +1023,8 @@
       </div>
     </section>
 
-    <!-- ======================= ⑤ 工作经历 ======================= -->
-    <section class="section" id="experience" aria-labelledby="experience-title">
-      <div class="container">
-        <header class="section-head reveal">
-          <span class="sec-num mono">04 · EXPERIENCE</span>
-          <h2 id="experience-title" class="sec-title">工作经历</h2>
-          <p class="sec-desc"><span class="chip chip--note">节选 · 共十段</span></p>
-        </header>
-
-        <ol class="timeline" data-stagger>
-          <li class="tl-item reveal">
-            <span class="tl-dot" aria-hidden="true"></span>
-            <article class="tl-card">
-              <div class="tl-head">
-                <h3>Link-x Capital（星连资本）</h3>
-                <p class="tl-role">投资助理 / 孵化器品牌增长</p>
-                <time class="tl-time mono" datetime="2026-07">2026.07 – 2026.09</time>
-              </div>
-              <ul class="tl-meta">
-                <li class="chip chip--mono">AI 行业研究</li>
-              </ul>
-              <ul>
-                <li>担任一级市场投前行业分析师，对量化、AI4S、具身智能等 AI 前沿领域开展深度调研；参加并整理超衍智能、无界进化、小熊猫科技等项目的高管访谈，沉淀对 AI 技术商业化落地的行业认知。</li>
-                <li>在投后合作伙伴华清普智孵化器 demoday 路演活动（2026/08）中负责外联策划与信息对齐、现场统筹展位物料与路演视频；活动召集上千位投资人线下参与，流量达百万量级。</li>
-              </ul>
-            </article>
-          </li>
-
-          <li class="tl-item reveal">
-            <span class="tl-dot" aria-hidden="true"></span>
-            <article class="tl-card">
-              <div class="tl-head">
-                <h3>Real Value Capital（至真资本）</h3>
-                <p class="tl-role">投资助理</p>
-                <time class="tl-time mono" datetime="2025-10">2025.10 – 2025.12</time>
-              </div>
-              <ul class="tl-meta">
-                <li class="chip chip--mono">投资分析</li>
-              </ul>
-              <ul>
-                <li>为 Route17、Wish 等多家拟赴纳斯达克上市的公司撰写上市建议书，开展估值与行业研究。</li>
-                <li>沉淀基于 AI 工具的标准化研究模板，实现研究工作流的标准化复用。</li>
-              </ul>
-            </article>
-          </li>
-
-          <li class="tl-item reveal">
-            <span class="tl-dot" aria-hidden="true"></span>
-            <article class="tl-card">
-              <div class="tl-head">
-                <h3>上海艾芒科技有限公司</h3>
-                <p class="tl-role">IT 咨询审计</p>
-                <time class="tl-time mono" datetime="2024-12">2024.12 – 2025.04</time>
-              </div>
-              <ul class="tl-meta">
-                <li class="chip chip--mono">IT 审计</li>
-                <li class="chip chip--mono">甲方对接</li>
-              </ul>
-              <ul>
-                <li>服务中加基金、惠升基金、中航基金、国投安保等金融机构；作为公司与甲方的直接对接人收集痛点需求，组织「问题复盘会」并协调一对一专家访谈验证方案，确保问题闭环。</li>
-                <li>对 IT 系统进行全链路审计，重点审查信息技术治理、应急管理、灾备恢复等非正常场景，穷举异常路径输出审计意见；入职一周即带实习生团队对接甲方完成项目交付。</li>
-              </ul>
-            </article>
-          </li>
-
-          <li class="tl-item reveal">
-            <span class="tl-dot" aria-hidden="true"></span>
-            <article class="tl-card">
-              <div class="tl-head">
-                <h3>北京汇丰盛和国际贸易有限公司</h3>
-                <p class="tl-role">行业研究员</p>
-                <time class="tl-time mono" datetime="2023-06">2023.06 – 2024.01</time>
-              </div>
-              <ul class="tl-meta">
-                <li class="chip chip--mono">数据分析</li>
-              </ul>
-              <ul>
-                <li>对大规模氧化铝交易数据进行分析，从交易频次、订单金额、复购率等维度绘制高价值客户画像。</li>
-                <li>将分析结论转化为销售团队可落地的战术建议（如高价值用户的共同特征），协助优化销售策略、提升客户转化效率。</li>
-              </ul>
-            </article>
-          </li>
-        </ol>
-
-        <h3 class="sec-sub reveal">校内与社会实践</h3>
-        <div class="campus" data-stagger>
-          <article class="campus-card reveal">
-            <div class="tl-head">
-              <h3>线下 AI 研讨沙龙</h3>
-              <time class="tl-time mono" datetime="2025-08">2025/08 · 东莞</time>
-            </div>
-            <p>独自完成海报设计、活动方案与场地谈判，从零谈下 2 个场地方，成功举办 4 场创业分享会；与 2 位本地 KOL 达成流量合作，邀请多位初创公司嘉宾分享，保持与 AI 前沿资讯接轨。</p>
-          </article>
-          <article class="campus-card reveal">
-            <div class="tl-head">
-              <h3>大型校园公益项目</h3>
-              <time class="tl-time mono" datetime="2025-03">2025/03 · 北京</time>
-            </div>
-            <p>与校外企业联合开办并独自组建团队，完整走通「获取信息 - 决策报名 - 到场签到 - 社交互动 - 离场反馈」用户路径，定位到场率卡点并针对性迭代，到场率提升约 30%；800 余名师生线下参与，拉到 1000 余元赞助，活动获人民日报报道。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- ======================= ⑥ 教育背景 ======================= -->
-    <section class="section section--alt" id="education" aria-labelledby="education-title">
+    <section class="section" id="education" aria-labelledby="education-title">
       <div class="container">
         <header class="section-head reveal">
           <span class="sec-num mono">05 · EDUCATION</span>
@@ -632,7 +1113,7 @@
         <header class="section-head reveal contact-head">
           <span class="sec-num mono">06 · CONTACT</span>
           <h2 id="contact-title" class="contact-title">期待与你在 AI 浪潮中相遇</h2>
-          <p class="contact-sub">如果你在做 Agent、模型评测或 AI 产品，欢迎聊聊——邮箱是最快找到我的方式。</p>
+          <p class="contact-sub">如果你在做 AI 产品、金融科技或模型评测相关的工作，欢迎聊聊——邮箱是最快找到我的方式。</p>
         </header>
 
 <!-- 邮箱本地部分用 HTML 实体分段书写（解析后为完整邮箱），避免源码中出现连续 11 位手机号样式数字串 -->
@@ -659,7 +1140,7 @@
           </div>
         </div>
 
-        <p class="quick-facts reveal">
+        <p class="quick-facts reveal" id="quick-facts">
           期望 base：北京 / 上海&nbsp;&nbsp;·&nbsp;&nbsp;目标岗位：AI 产品经理（大模型应用 / Agent 方向）/ AI 训练师 / AI 行业研究员
         </p>
       </div>

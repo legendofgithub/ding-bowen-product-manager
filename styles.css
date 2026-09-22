@@ -903,3 +903,81 @@ a.contact-btn:hover .contact-value { color: var(--accent-text); }
   .scroll-cue .icon { animation: none; }
   .kn-card:hover, .btn:hover, .tl-card:hover { transform: none; } /* hover 仅保留颜色变化 */
 }
+
+/* ==========================================================================
+   方向板块切换（AI 产品经理 / 金融科技 / 大模型评测）
+   ========================================================================== */
+
+/* 板块显隐：非当前方向整块隐藏 */
+.board[hidden] { display: none !important; }
+
+/* ---------- 顶部切换标签条（吸顶于导航下方） ---------- */
+.board-tabs-wrap {
+  position: sticky;
+  top: 64px; /* 与吸顶导航高度对齐 */
+  z-index: 90;
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.board-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 10px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.board-tabs::-webkit-scrollbar { display: none; }
+
+.board-tab {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  font: inherit;
+  text-align: left;
+}
+
+.board-tab:hover { border-color: var(--accent-text); color: var(--text); }
+
+.board-tab:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.board-tab.is-active {
+  border-color: var(--accent-text);
+  color: var(--heading);
+  box-shadow: var(--shadow-sm);
+  background: var(--tag-bg);
+}
+
+.bt-name { font-weight: 700; font-size: 15px; line-height: 1.3; }
+.bt-sub { font-size: 12px; line-height: 1.4; letter-spacing: 0.02em; }
+
+/* ---------- 方向定位条 ---------- */
+.board-goal { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.board-brief {
+  max-width: 46em;
+  margin: 0 auto;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .board-tabs-wrap { top: 58px; }
+  .board-tab { flex: 0 0 auto; padding: 8px 16px; }
+  .bt-sub { display: none; }
+}
