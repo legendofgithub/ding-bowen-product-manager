@@ -209,19 +209,19 @@
       title: '金融 × AI 复合背景',
       phrases: ['Agent 产品设计', 'LLM 评测与可观测性', 'RAG 与检索', '金融 × AI 交叉背景'],
       sr: '专注方向：Agent 产品设计、LLM 评测与可观测性、RAG 与检索、金融 × AI 交叉背景',
-      quick: '期望 base：北京 / 上海&nbsp;&nbsp;·&nbsp;&nbsp;目标岗位：AI 产品经理（大模型应用 / Agent 方向）/ AI 训练师 / AI 行业研究员'
+      quick: '期望 base：北京 / 上海'
     },
     fintech: {
       title: '金融科技',
       phrases: ['VC / PE 投研', '行业研究与估值', 'AI × 金融', '十余段实习 · 完整项目闭环'],
       sr: '专注方向：VC / PE 投研、行业研究与估值、AI × 金融、十余段实习与完整项目闭环',
-      quick: '期望 base：北京 / 上海&nbsp;&nbsp;·&nbsp;&nbsp;目标岗位：VC / PE / 金融科技'
+      quick: '期望 base：北京 / 上海'
     },
     eval: {
       title: '大模型评测',
       phrases: ['Benchmark 生态', 'LLM-as-a-judge', 'badcase 归因', '评测工具设计'],
       sr: '专注方向：Benchmark 生态、LLM-as-a-judge、badcase 归因、评测工具设计',
-      quick: '期望 base：北京 / 上海&nbsp;&nbsp;·&nbsp;&nbsp;目标岗位：大模型评测 / 模型效果评估 / AI 产品评测'
+      quick: '期望 base：北京 / 上海'
     }
   };
   var boardTabs = Array.prototype.slice.call(doc.querySelectorAll('.board-tab'));
