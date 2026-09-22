@@ -4,149 +4,202 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AIGC 视频作品 · 丁博文</title>
-  <meta name="description" content="丁博文的 AIGC 视频作品集：漫剧系列、短片片段与商业广告。">
+  <meta name="description" content="丁博文的 AIGC 视频作品集：漫剧系列、商业广告与画布展示。">
   <meta property="og:title" content="AIGC 视频作品 · 丁博文">
-  <meta property="og:description" content="漫剧系列、短片片段与商业广告的 AIGC 作品集。">
+  <meta property="og:description" content="漫剧系列、商业广告与画布展示的 AIGC 作品集。">
   <meta property="og:url" content="https://dingbowen.tech/aigc.html">
-  <meta property="og:image" content="https://dingbowen.tech/assets/aigc/char-vampire.jpg">
+  <meta property="og:image" content="https://dingbowen.tech/assets/aigc/og-poster.jpg">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ---------- AIGC 页专属 ---------- */
+    /* ============ AIGC 页专属 · 科技几何风 ============ */
+    :root {
+      --ag-bg: #07090f;
+      --ag-card: #10141d;
+      --ag-line: #232a3a;
+      --ag-accent: #7aa2ff;
+      --ag-text: #e8eefb;
+      --ag-muted: #93a3c0;
+    }
+    body { background: var(--ag-bg); }
+
+    /* ---------- 首屏：双片段 ---------- */
     .aigc-hero {
       position: relative;
-      min-height: 78vh;
+      min-height: 82vh;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      border-bottom: 1px solid var(--ag-line);
     }
     .aigc-bg-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
     }
     .aigc-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(180deg, rgba(8,10,16,0.66) 0%, rgba(8,10,16,0.38) 45%, rgba(8,10,16,0.88) 100%);
+      content: ""; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(7,9,15,0.72) 0%, rgba(7,9,15,0.40) 45%, rgba(7,9,15,0.92) 100%);
     }
-    .aigc-hero-inner {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 140px 20px 90px;
-    }
-    .aigc-eyebrow {
-      font-size: 0.85rem;
-      letter-spacing: 0.32em;
-      color: #9fb4d8;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-    .aigc-title {
-      font-size: clamp(2.1rem, 6vw, 3.6rem);
-      line-height: 1.15;
-      color: #f2f6ff;
-      margin: 0 0 16px;
-      text-shadow: 0 4px 30px rgba(0,0,0,0.55);
-    }
-    .aigc-sub {
-      color: #c2cfe6;
-      font-size: 1.05rem;
-      margin: 0 auto 34px;
-      max-width: 560px;
-    }
+    .aigc-hero-inner { position: relative; z-index: 2; text-align: center; padding: 130px 20px 74px; max-width: 860px; }
+    .aigc-eyebrow { font-size: 0.85rem; letter-spacing: 0.32em; color: #9fb4d8; text-transform: uppercase; margin-bottom: 18px; }
+    .aigc-title { font-size: clamp(2.1rem, 6vw, 3.6rem); line-height: 1.15; color: #f2f6ff; margin: 0 0 16px; text-shadow: 0 4px 30px rgba(0,0,0,0.55); }
+    .aigc-sub { color: #c2cfe6; font-size: 1.05rem; margin: 0 auto 30px; max-width: 580px; }
     .aigc-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 999px;
-      color: #f2f6ff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      background: rgba(10,14,22,0.45);
-      backdrop-filter: blur(6px);
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 22px; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px;
+      color: #f2f6ff; text-decoration: none; font-size: 0.95rem;
+      background: rgba(10,14,22,0.45); backdrop-filter: blur(6px);
       transition: border-color 0.2s ease, background 0.2s ease;
     }
-    .aigc-back:hover { border-color: #7aa2ff; background: rgba(20,28,44,0.6); }
+    .aigc-back:hover { border-color: var(--ag-accent); background: rgba(20,28,44,0.6); }
 
-    .aigc-body { background: #080a10; padding: 70px 0 40px; }
-    .aigc-body .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
-    .aigc-sec-head { margin-bottom: 26px; }
-    .aigc-sec-head .sec-num { color: #7aa2ff; }
-    .aigc-sec-head h2 { color: #f2f6ff; font-size: 1.6rem; margin: 6px 0 4px; }
-    .aigc-sec-head p { color: #93a3c0; margin: 0; font-size: 0.95rem; }
-
-    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-bottom: 64px; }
-    .video-card {
-      background: #10141d;
-      border: 1px solid #232a3a;
-      border-radius: 14px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .video-card video {
-      width: 100%;
-      display: block;
+    /* 首屏双片段 · 六边形窗（自动循环，不可控） */
+    .hero-clips { display: flex; justify-content: center; gap: 34px; margin-top: 44px; flex-wrap: wrap; }
+    .hex-clip { position: relative; width: 188px; }
+    .hex-clip video {
+      width: 100%; aspect-ratio: 1 / 1.12; object-fit: cover; display: block;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
       background: #000;
-      aspect-ratio: 16 / 9;
-      object-fit: contain;
     }
-    .video-card.video-card--portrait video { aspect-ratio: 9 / 16; max-height: 620px; object-fit: contain; }
-    .video-card--portrait { max-width: 400px; }
-    .video-meta { padding: 14px 16px 16px; }
-    .video-meta h3 { color: #e8eefb; font-size: 1.02rem; margin: 0 0 6px; }
-    .video-meta p { color: #93a3c0; font-size: 0.88rem; margin: 0; line-height: 1.55; }
-    .video-meta .v-dur {
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 0.75rem;
-      color: #9fb4d8;
-      border: 1px solid #2c3650;
-      border-radius: 999px;
-      padding: 2px 10px;
+    .hex-clip .hex-tag {
+      margin-top: 10px; text-align: center;
+      font-size: 0.78rem; color: #9fb4d8; letter-spacing: 0.08em;
+    }
+    .hex-clip .hex-tag b { color: var(--ag-text); font-weight: 600; display: block; font-size: 0.86rem; }
+
+    /* ---------- 通用区块 ---------- */
+    .aigc-body { background: var(--ag-bg); padding: 74px 0 30px; }
+    .aigc-body .container { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+    .aigc-sec-head { margin-bottom: 30px; position: relative; }
+    .aigc-sec-head .sec-num { color: var(--ag-accent); }
+    .aigc-sec-head h2 { color: var(--ag-text); font-size: 1.6rem; margin: 6px 0 4px; }
+    .aigc-sec-head p { color: var(--ag-muted); margin: 0; font-size: 0.95rem; }
+    .aigc-sec { margin-bottom: 78px; }
+
+    /* ---------- 01 漫剧系列 · 几何环绕排布 ---------- */
+    .geo-stage { position: relative; }
+    /* 电路装饰线 */
+    .geo-stage::before {
+      content: ""; position: absolute; inset: -26px -14px; z-index: 0; pointer-events: none;
+      background:
+        linear-gradient(var(--ag-line) 1px, transparent 1px) 0 0 / 100% 148px,
+        linear-gradient(90deg, var(--ag-line) 1px, transparent 1px) 0 0 / 148px 100%;
+      opacity: 0.28;
+      mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%);
+    }
+    .geo-grid {
+      position: relative; z-index: 1;
+      display: grid; gap: 26px;
+      grid-template-columns: 1.25fr 1.25fr 0.85fr;
+      grid-template-areas: "ep1 ep1 key" "ep2 spacer key";
+      align-items: start;
+    }
+    .geo-card {
+      background: var(--ag-card);
+      border: 1px solid var(--ag-line);
+      clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .geo-card:hover { transform: translateY(-4px); border-color: #3a4763; }
+    .geo-card video { width: 100%; display: block; background: #000; }
+    .geo-meta { padding: 14px 18px 16px; border-top: 1px solid var(--ag-line); }
+    .geo-meta h3 { color: var(--ag-text); font-size: 1rem; margin: 0 0 6px; }
+    .geo-meta p { color: var(--ag-muted); font-size: 0.87rem; margin: 0; line-height: 1.55; }
+    .geo-meta .v-dur {
+      display: inline-block; margin-top: 10px; font-size: 0.72rem; color: #9fb4d8;
+      border: 1px solid #2c3650; border-radius: 999px; padding: 2px 10px;
+    }
+    .geo-ep1 { grid-area: ep1; transform: rotate(-0.8deg); }
+    .geo-ep1 video { aspect-ratio: 7 / 4; object-fit: cover; }
+    .geo-ep2 { grid-area: ep2; transform: rotate(0.9deg); margin-top: 6px; }
+    .geo-ep2 video { aspect-ratio: 7 / 4; object-fit: cover; }
+    .geo-key { grid-area: key; transform: rotate(1.1deg); margin-top: 20px; }
+    .geo-key video { aspect-ratio: 9 / 16; object-fit: cover; max-height: 660px; }
+    /* 角标编号 */
+    .geo-badge {
+      position: absolute; top: 12px; left: 14px; z-index: 2;
+      font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ag-accent);
+      background: rgba(7,9,15,0.72); border: 1px solid #2c3650;
+      padding: 3px 10px; border-radius: 4px; backdrop-filter: blur(4px);
+    }
+    /* 漂浮装饰小方块 */
+    .geo-dot {
+      position: absolute; z-index: 0; pointer-events: none;
+      border: 1px solid var(--ag-accent); opacity: 0.4;
+    }
+    .geo-dot--a { width: 46px; height: 46px; top: -18px; right: 6%; transform: rotate(18deg); }
+    .geo-dot--b { width: 22px; height: 22px; bottom: 24px; left: 2.5%; transform: rotate(-12deg); animation: ag-pulse 3.2s ease-in-out infinite; }
+    .geo-dot--c { width: 12px; height: 12px; top: 42%; right: -8px; background: var(--ag-accent); opacity: 0.25; }
+    @keyframes ag-pulse { 50% { transform: rotate(-12deg) scale(1.35); opacity: 0.75; } }
+
+    @media (max-width: 980px) {
+      .geo-grid { grid-template-columns: 1fr 1fr; grid-template-areas: "ep1 ep1" "ep2 key"; }
+      .geo-ep2, .geo-key { margin-top: 0; }
+      .geo-key video { max-height: 560px; }
+    }
+    @media (max-width: 640px) {
+      .geo-grid { grid-template-columns: 1fr; grid-template-areas: "ep1" "ep2" "key"; }
+      .geo-ep1, .geo-ep2, .geo-key { transform: none; }
+      .hex-clip { width: 148px; }
+      .aigc-hero { min-height: 70vh; }
     }
 
-    .char-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-bottom: 60px; }
-    .char-card {
-      background: #10141d;
-      border: 1px solid #232a3a;
-      border-radius: 14px;
-      overflow: hidden;
+    /* ---------- 02 商业广告 ---------- */
+    .ad-grid { display: grid; grid-template-columns: minmax(280px, 400px); justify-content: center; }
+    .ad-grid .geo-card video { aspect-ratio: 9 / 16; object-fit: cover; }
+
+    /* ---------- 03 画布展示 · 全宽自动循环 ---------- */
+    .canvas-wrap { position: relative; }
+    .canvas-wrap video {
+      width: 100%; display: block; background: #000;
+      clip-path: polygon(26px 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%, 0 26px);
+      border: 1px solid var(--ag-line);
     }
-    .char-card img { width: 100%; display: block; }
-    .char-card .video-meta { padding: 12px 16px 14px; }
+    .canvas-note {
+      margin-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+      color: var(--ag-muted); font-size: 0.85rem;
+    }
+    .live-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 1px solid #2c3650; border-radius: 999px; padding: 4px 12px; color: #9fb4d8; font-size: 0.78rem;
+    }
+    .live-chip::before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--ag-accent); animation: ag-pulse 2.4s ease-in-out infinite;
+    }
+
+    /* ---------- 04 口语化理解 ---------- */
+    .talk-card {
+      position: relative; background: linear-gradient(180deg, #10141d 0%, #0c1018 100%);
+      border: 1px solid var(--ag-line);
+      clip-path: polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px);
+      padding: 34px 38px 30px;
+    }
+    .talk-card::before {
+      content: "「"; position: absolute; top: 6px; left: 18px;
+      font-size: 3.4rem; color: var(--ag-accent); opacity: 0.35; font-family: Georgia, serif;
+    }
+    .talk-card h3 { color: var(--ag-text); font-size: 1.18rem; margin: 0 0 16px; }
+    .talk-card p { color: #b9c6de; font-size: 0.98rem; line-height: 1.9; margin: 0 0 14px; }
+    .talk-card p:last-child { margin-bottom: 0; }
+    .talk-card b { color: var(--ag-text); }
+    @media (max-width: 640px) { .talk-card { padding: 26px 22px 24px; } }
 
     .aigc-footer {
-      border-top: 1px solid #1a2130;
-      padding: 26px 20px 34px;
-      text-align: center;
-      color: #63718e;
-      font-size: 0.85rem;
-      background: #080a10;
+      border-top: 1px solid #1a2130; padding: 26px 20px 34px; text-align: center;
+      color: #63718e; font-size: 0.85rem; background: var(--ag-bg);
     }
     .aigc-footer a { color: #9fb4d8; text-decoration: none; }
     .aigc-footer a:hover { color: #c2d4f2; }
-
-    @media (max-width: 640px) {
-      .aigc-hero { min-height: 66vh; }
-      .video-card--portrait { max-width: 100%; }
-    }
   </style>
 </head>
 <body>
 
-  <!-- ======================= 首屏 · 火力突围背景视频 ======================= -->
+  <!-- ======================= 首屏 · 火力突围背景 + 双片段 ======================= -->
   <header class="aigc-hero" id="top">
     <video class="aigc-bg-video" src="assets/aigc/bg-fire-breakout.mp4" autoplay muted loop playsinline preload="auto"></video>
     <div class="aigc-hero-inner">
@@ -154,111 +207,122 @@
       <h1 class="aigc-title">AIGC 视频作品</h1>
       <p class="aigc-sub">漫剧系列 · 世界观短片 · 商业广告——从角色设定、剧本分镜到成片合成的 AIGC 全流程创作。</p>
       <a class="aigc-back" href="index.html">← 返回主站</a>
+      <div class="hero-clips">
+        <div class="hex-clip">
+          <video src="assets/aigc/bg-fire-breakout.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <p class="hex-tag"><b>火力突围</b>SEG-002 · 背景循环</p>
+        </div>
+        <div class="hex-clip">
+          <video src="assets/aigc/zero-g-jump-seg1.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <p class="hex-tag"><b>失重跃迁</b>SEG-001 · 循环播放</p>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="aigc-body">
 
-    <!-- ======================= ① 漫剧系列 ======================= -->
-    <div class="container">
-      <div class="aigc-sec-head">
-        <span class="sec-num mono">01 · SERIES</span>
-        <h2>漫剧系列</h2>
-        <p>多集连续叙事的 AI 漫剧：吸血鬼奇幻系列两集，以及世界观短片《阿乐斯之钥》。</p>
+    <!-- ======================= 01 漫剧系列 · 几何环绕 ======================= -->
+    <section class="aigc-sec">
+      <div class="container">
+        <div class="aigc-sec-head">
+          <span class="sec-num mono">01 · SERIES</span>
+          <h2>漫剧系列</h2>
+          <p>多集连续叙事的 AI 漫剧：吸血鬼奇幻系列两集，以及世界观短片《阿乐斯之钥》。</p>
+        </div>
+        <div class="geo-stage">
+          <span class="geo-dot geo-dot--a" aria-hidden="true"></span>
+          <span class="geo-dot geo-dot--b" aria-hidden="true"></span>
+          <span class="geo-dot geo-dot--c" aria-hidden="true"></span>
+          <div class="geo-grid">
+            <article class="geo-card geo-ep1">
+              <span class="geo-badge">EP.01</span>
+              <video controls preload="metadata" playsinline src="assets/aigc/vampire-ep1.mp4"></video>
+              <div class="geo-meta">
+                <h3>吸血鬼漫剧 · 第一集「暗巷中的异界来客」</h3>
+                <p>系列开篇：暗巷中的遭遇战。角色三视图驱动的人物一致性，多分镜剪辑成片。</p>
+                <span class="v-dur">1′28″ · 1080p</span>
+              </div>
+            </article>
+            <article class="geo-card geo-ep2">
+              <span class="geo-badge">EP.02</span>
+              <video controls preload="metadata" playsinline src="assets/aigc/vampire-ep2.mp4"></video>
+              <div class="geo-meta">
+                <h3>吸血鬼漫剧 · 第二集「暗影中的访客」</h3>
+                <p>剧情推进：新角色登场与暗影对峙，十一个分镜段落的连续叙事合成。</p>
+                <span class="v-dur">2′23″ · 1080p</span>
+              </div>
+            </article>
+            <article class="geo-card geo-key">
+              <span class="geo-badge">KEY</span>
+              <video controls preload="metadata" playsinline src="assets/aigc/key-of-ales-final.mp4"></video>
+              <div class="geo-meta">
+                <h3>阿乐斯之钥 · 合成短片</h3>
+                <p>「未命名故事」世界观短片：竖屏叙事长片，完整的世界观、角色与情节展开。</p>
+                <span class="v-dur">3′43″ · 竖屏</span>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
-      <div class="video-grid">
-        <article class="video-card">
-          <video controls preload="metadata" playsinline src="assets/aigc/vampire-ep1.mp4"></video>
-          <div class="video-meta">
-            <h3>吸血鬼漫剧 · 第一集「暗巷中的异界来客」</h3>
-            <p>系列开篇：暗巷中的遭遇战。角色三视图驱动的人物一致性，多分镜剪辑成片。</p>
-            <span class="v-dur">1′28″ · 1080p</span>
-          </div>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline src="assets/aigc/vampire-ep2.mp4"></video>
-          <div class="video-meta">
-            <h3>吸血鬼漫剧 · 第二集「暗影中的访客」</h3>
-            <p>剧情推进：新角色登场与暗影对峙，十一个分镜段落的连续叙事合成。</p>
-            <span class="v-dur">2′23″ · 1080p</span>
-          </div>
-        </article>
-        <article class="video-card video-card--portrait">
-          <video controls preload="metadata" playsinline src="assets/aigc/key-of-ales-final.mp4"></video>
-          <div class="video-meta">
-            <h3>阿乐斯之钥 · 合成短片</h3>
-            <p>「未命名故事」世界观短片：竖屏叙事长片，完整的世界观、角色与情节展开。</p>
-            <span class="v-dur">3′43″ · 竖屏</span>
-          </div>
-        </article>
-      </div>
-    </div>
+    </section>
 
-    <!-- ======================= ② 片段与广告 ======================= -->
-    <div class="container">
-      <div class="aigc-sec-head">
-        <span class="sec-num mono">02 · SHORTS</span>
-        <h2>片段与广告</h2>
-        <p>动作片段与商业向短视频：视频生成模型的多风格尝试。</p>
+    <!-- ======================= 02 商业广告 ======================= -->
+    <section class="aigc-sec">
+      <div class="container">
+        <div class="aigc-sec-head">
+          <span class="sec-num mono">02 · ADS</span>
+          <h2>商业广告</h2>
+          <p>商业向短视频：职场场景叙事 + 产品植入，竖屏投放规格。</p>
+        </div>
+        <div class="ad-grid">
+          <article class="geo-card">
+            <span class="geo-badge">AD</span>
+            <video controls preload="metadata" playsinline src="assets/aigc/facewash-ad.mp4"></video>
+            <div class="geo-meta">
+              <h3>职场男士控油洗面奶广告</h3>
+              <p>职场场景切入痛点，产品植入与卖点演示一镜完成。</p>
+              <span class="v-dur">15″ · 竖屏</span>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="video-grid">
-        <article class="video-card">
-          <video controls preload="metadata" playsinline src="assets/aigc/fire-breakout-seg2.mp4"></video>
-          <div class="video-meta">
-            <h3>火力突围 · SEG-002</h3>
-            <p>高强度交火与突围动作片段，本页首屏背景即取自本片。</p>
-            <span class="v-dur">15″ · 720p</span>
-          </div>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline src="assets/aigc/zero-g-jump-seg1.mp4"></video>
-          <div class="video-meta">
-            <h3>失重跃迁 · SEG-001</h3>
-            <p>失重环境的跃迁镜头：对空间感与镜头运动的一致性控制。</p>
-            <span class="v-dur">15″ · 720p</span>
-          </div>
-        </article>
-        <article class="video-card video-card--portrait">
-          <video controls preload="metadata" playsinline src="assets/aigc/facewash-ad.mp4"></video>
-          <div class="video-meta">
-            <h3>职场男士控油洗面奶广告</h3>
-            <p>商业广告向短视频：职场场景叙事 + 产品植入，竖屏投放规格。</p>
-            <span class="v-dur">15″ · 竖屏</span>
-          </div>
-        </article>
-        <article class="video-card">
-          <video controls preload="metadata" playsinline src="assets/aigc/key-of-ales-canvas.mp4"></video>
-          <div class="video-meta">
-            <h3>阿乐斯之钥 · 画布展示</h3>
-            <p>《阿乐斯之钥》的世界观画布动态展示。</p>
-            <span class="v-dur">6″</span>
-          </div>
-        </article>
-      </div>
-    </div>
+    </section>
 
-    <!-- ======================= ③ 角色设定 ======================= -->
-    <div class="container">
-      <div class="aigc-sec-head">
-        <span class="sec-num mono">03 · CHARACTERS</span>
-        <h2>角色设定</h2>
-        <p>漫剧角色的三视图设定——多视角一致性是 AI 角色可复用的前提。</p>
+    <!-- ======================= 03 画布展示 · 全宽循环 ======================= -->
+    <section class="aigc-sec">
+      <div class="container">
+        <div class="aigc-sec-head">
+          <span class="sec-num mono">03 · CANVAS</span>
+          <h2>画布展示</h2>
+          <p>《阿乐斯之钥》的世界观画布动态展示。</p>
+        </div>
+        <div class="canvas-wrap">
+          <video src="assets/aigc/key-of-ales-canvas.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <div class="canvas-note">
+            <span class="live-chip">LOOP · 自动循环</span>
+            <span>阿乐斯之钥 · 画布 · 6″</span>
+          </div>
+        </div>
       </div>
-      <div class="char-grid">
-        <article class="char-card">
-          <img src="assets/aigc/char-vampire.jpg" alt="吸血鬼角色三视图" loading="lazy">
-          <div class="video-meta"><h3>吸血鬼 · 三视图</h3></div>
-        </article>
-        <article class="char-card">
-          <img src="assets/aigc/char-girl.jpg" alt="天真少女角色三视图" loading="lazy">
-          <div class="video-meta"><h3>天真少女 · 三视图</h3></div>
-        </article>
-        <article class="char-card">
-          <img src="assets/aigc/char-mage.jpg" alt="奥术法师角色三视图" loading="lazy">
-          <div class="video-meta"><h3>奥术法师 · 三视图</h3></div>
-        </article>
+    </section>
+
+    <!-- ======================= 04 聊聊 AI 视频 ======================= -->
+    <section class="aigc-sec">
+      <div class="container">
+        <div class="aigc-sec-head">
+          <span class="sec-num mono">04 · THOUGHTS</span>
+          <h2>聊聊 AI 视频制作</h2>
+        </div>
+        <div class="talk-card">
+          <h3>AI 视频不是抽卡，是把导演语言翻译成提示词</h3>
+          <p>做这批片子最大的体会：模型就是剧组，提示词就是分镜稿。卡住我的从来不是工具，是两件最基础的事——<b>采光</b>和<b>运镜</b>。</p>
+          <p>采光是画面的骨头。同一个场景，写「顶光」画面平得像证件照；写成「低角度侧逆光 + 轻微体积雾」，人物轮廓立刻从背景里跳出来；色温再压冷一点，科技感自己就长出来了。所以我习惯先把<b>光的方向和硬度</b>想清楚，再去写画面里有什么。</p>
+          <p>运镜是节奏的呼吸。「给点动感」这种话模型听不懂，得翻译成镜头语言：缓慢推镜（dolly in）是压迫感，横移是在铺陈信息，手持跟随的轻微晃动是紧张，希区柯克变焦直接把情绪拧到顶。下提示词之前我会先问自己：这个镜头要交代什么信息、带什么情绪——<b>一句话一个目的，不贪</b>。</p>
+          <p>剩下的交给耐心：角色一致性靠三视图锁住，分镜之间的连续性靠关键帧反复对齐。AI 负责生成，节奏和审美，还是人说了算。</p>
+        </div>
       </div>
-    </div>
+    </section>
 
   </main>
 
