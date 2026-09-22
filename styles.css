@@ -1014,7 +1014,6 @@ a.contact-btn:hover .contact-value { color: var(--accent-text); }
 .ev-title-doodle { color: var(--accent-text); font-size: 0.55em; vertical-align: 0.5em; animation: ev-spin 6s linear infinite; display: inline-block; }
 @keyframes ev-spin { to { transform: rotate(360deg); } }
 
-.ev-ticker:hover 
 .ev-wall { columns: 3 280px; column-gap: 26px; }
 .ev-card {
   position: relative;
