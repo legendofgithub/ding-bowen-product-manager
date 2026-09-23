@@ -912,14 +912,9 @@ a.contact-btn:hover .contact-value { color: var(--accent-text); }
 /* 板块显隐：非当前方向整块隐藏 */
 .board[hidden] { display: none !important; }
 
-/* ---------- 顶部切换标签条（吸顶于导航下方） ---------- */
+/* ---------- 方向切换标签条（固定原地，不随滚动吸顶） ---------- */
 .board-tabs-wrap {
-  position: sticky;
-  top: 64px; /* 与吸顶导航高度对齐 */
-  z-index: 90;
-  background: var(--nav-bg);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  backdrop-filter: saturate(180%) blur(12px);
+  position: static;
   border-bottom: 1px solid var(--border);
 }
 
@@ -978,7 +973,6 @@ a.contact-btn:hover .contact-value { color: var(--accent-text); }
 }
 
 @media (max-width: 860px) {
-  .board-tabs-wrap { top: 58px; }
   .board-tab { flex: 0 0 auto; padding: 8px 16px; }
   .bt-sub { display: none; }
 }
