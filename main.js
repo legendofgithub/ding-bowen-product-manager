@@ -206,24 +206,53 @@
   var BOARD_KEYS = ['pm', 'fintech', 'eval'];
   var BOARD_CONF = {
     pm: {
-      title: '金融 × AI 复合背景',
-      phrases: ['Agent 产品设计', 'LLM 评测与可观测性', 'RAG 与检索', '金融 × AI 交叉背景'],
-      sr: '专注方向：Agent 产品设计、LLM 评测与可观测性、RAG 与检索、金融 × AI 交叉背景',
-      quick: '期望 base：北京 / 上海'
+      zh: {
+        title: '金融 × AI 复合背景',
+        phrases: ['Agent 产品设计', 'LLM 评测与可观测性', 'RAG 与检索', '金融 × AI 交叉背景'],
+        sr: '专注方向：Agent 产品设计、LLM 评测与可观测性、RAG 与检索、金融 × AI 交叉背景',
+        quick: '期望 base：北京 / 上海'
+      },
+      en: {
+        title: 'Finance × AI Hybrid Background',
+        phrases: ['Agent product design', 'LLM eval & observability', 'RAG & retrieval', 'Finance × AI crossover'],
+        sr: 'Focus: Agent product design, LLM evaluation & observability, RAG & retrieval, Finance × AI crossover',
+        quick: 'Preferred base: Beijing / Shanghai'
+      }
     },
     fintech: {
-      title: '金融科技',
-      phrases: ['VC / PE 投研', '行业研究与估值', 'AI × 金融', '十余段实习 · 完整项目闭环'],
-      sr: '专注方向：VC / PE 投研、行业研究与估值、AI × 金融、十余段实习与完整项目闭环',
-      quick: '期望 base：北京 / 上海'
+      zh: {
+        title: '金融科技',
+        phrases: ['VC / PE 投研', '行业研究与估值', 'AI × 金融', '十余段实习 · 完整项目闭环'],
+        sr: '专注方向：VC / PE 投研、行业研究与估值、AI × 金融、十余段实习与完整项目闭环',
+        quick: '期望 base：北京 / 上海'
+      },
+      en: {
+        title: 'FinTech',
+        phrases: ['VC / PE research', 'industry research & valuation', 'AI × finance', '10+ internships · full loops'],
+        sr: 'Focus: VC / PE research, industry research & valuation, AI × finance, 10+ internships',
+        quick: 'Preferred base: Beijing / Shanghai'
+      }
     },
     eval: {
-      title: '大模型评测',
-      phrases: ['Benchmark 生态', 'LLM-as-a-judge', 'badcase 归因', '评测工具设计'],
-      sr: '专注方向：Benchmark 生态、LLM-as-a-judge、badcase 归因、评测工具设计',
-      quick: '期望 base：北京 / 上海'
+      zh: {
+        title: '大模型评测',
+        phrases: ['Benchmark 生态', 'LLM-as-a-judge', 'badcase 归因', '评测工具设计'],
+        sr: '专注方向：Benchmark 生态、LLM-as-a-judge、badcase 归因、评测工具设计',
+        quick: '期望 base：北京 / 上海'
+      },
+      en: {
+        title: 'LLM Evaluation',
+        phrases: ['benchmark ecosystems', 'LLM-as-a-judge', 'bad-case attribution', 'evaluation tooling'],
+        sr: 'Focus: benchmark ecosystems, LLM-as-a-judge, bad-case attribution, evaluation tooling',
+        quick: 'Preferred base: Beijing / Shanghai'
+      }
     }
   };
+  function boardConf(key) {
+    var c = BOARD_CONF[key] || BOARD_CONF.pm;
+    var isEN = doc.documentElement.getAttribute('lang') === 'en';
+    return isEN && c.en ? c.en : c.zh;
+  }
   var boardTabs = Array.prototype.slice.call(doc.querySelectorAll('.board-tab'));
   var heroTitle = doc.getElementById('hero-title');
   var heroSr = doc.getElementById('hero-sr');
@@ -249,11 +278,12 @@
       }
     });
 
-    var conf = BOARD_CONF[key];
+    var conf = boardConf(key);
     if (heroTitle && heroTitle.textContent !== conf.title) heroTitle.textContent = conf.title;
     if (heroSr) heroSr.textContent = conf.sr;
     if (quickFacts) quickFacts.innerHTML = conf.quick;
     typedState.phrases = conf.phrases;
+    if (prefersReduced && typedEl) typedEl.textContent = conf.phrases[0];
 
     /* data-sec 导航链接指向当前板块内的节 */
     doc.querySelectorAll('a[data-sec]').forEach(function (a) {
@@ -273,6 +303,13 @@
     tab.addEventListener('click', function () {
       setBoard(tab.getAttribute('data-board'), false);
     });
+  });
+
+  /* 语言切换（i18n.js 触发）后，用新语言刷新板块联动文案（hero 标题/打字机/quick-facts） */
+  doc.addEventListener('site-langchange', function () {
+    setBoard(activeBoard, false);
+    /* 打字机重启以使用新词组 */
+    if (typeof typedState !== 'undefined' && typedState.restart) typedState.restart();
   });
 
   /* 键盘左右切换（WAI-ARIA Tabs 模式） */

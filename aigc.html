@@ -195,9 +195,19 @@
     }
     .aigc-footer a { color: #9fb4d8; text-decoration: none; }
     .aigc-footer a:hover { color: #c2d4f2; }
+      .aigc-lang {
+      position: fixed; top: 16px; right: 18px; z-index: 50;
+      padding: 7px 14px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(10,14,22,0.45); backdrop-filter: blur(6px);
+      color: #f2f6ff; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
+      cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .aigc-lang:hover { border-color: #7aa2ff; background: rgba(20,28,44,0.6); }
   </style>
 </head>
 <body>
+  <button type="button" class="aigc-lang" id="lang-toggle" aria-label="Switch to English"><span class="lang-label">EN</span></button>
 
   <!-- ======================= 首屏 · 火力突围背景 + 双片段 ======================= -->
   <header class="aigc-hero" id="top">
@@ -330,5 +340,6 @@
     <p>© 2026 丁博文 · <a href="index.html">返回主站</a> · <a href="mailto:15611681756@163.com">15611681756@163.com</a></p>
   </footer>
 
+  <script src="i18n.js" defer></script>
 </body>
 </html>
