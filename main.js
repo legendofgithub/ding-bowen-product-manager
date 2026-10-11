@@ -203,7 +203,7 @@
   }
 
   /* ---------- 9. 方向板块切换（AI 产品经理 / 金融科技 / 大模型评测） ---------- */
-  var BOARD_KEYS = ['pm', 'fintech', 'eval'];
+  var BOARD_KEYS = ['pm', 'fintech', 'eval', 'gov'];
   var BOARD_CONF = {
     pm: {
       zh: {
@@ -244,6 +244,20 @@
         title: 'LLM Evaluation',
         phrases: ['benchmark ecosystems', 'LLM-as-a-judge', 'bad-case attribution', 'evaluation tooling'],
         sr: 'Focus: benchmark ecosystems, LLM-as-a-judge, bad-case attribution, evaluation tooling',
+        quick: 'Preferred base: Beijing / Shanghai'
+      }
+    },
+    gov: {
+      zh: {
+        title: '治理合规',
+        phrases: ['合规审计闭环', '平台规则运营', '风险识别与核验', '制度与章程设计'],
+        sr: '专注方向：合规审计闭环、平台规则运营、风险识别与核验、制度与章程设计',
+        quick: '期望 base：北京 / 上海'
+      },
+      en: {
+        title: 'Governance & Compliance',
+        phrases: ['compliance audit loops', 'platform rule operations', 'risk identification', 'policy & charter design'],
+        sr: 'Focus: compliance audit loops, platform rule operations, risk identification, policy & charter design',
         quick: 'Preferred base: Beijing / Shanghai'
       }
     }

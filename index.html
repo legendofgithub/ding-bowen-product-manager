@@ -60,6 +60,8 @@
     <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
     <symbol id="i-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
     <symbol id="i-down" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
@@ -219,6 +221,10 @@
           <button type="button" class="board-tab" role="tab" id="tab-eval" aria-controls="board-eval" aria-selected="false" tabindex="-1" data-board="eval">
             <span class="bt-name">大模型评测</span>
             <span class="bt-sub">模型效果评估 · AI 产品评测</span>
+          </button>
+          <button type="button" class="board-tab" role="tab" id="tab-gov" aria-controls="board-gov" aria-selected="false" tabindex="-1" data-board="gov">
+            <span class="bt-name">治理合规</span>
+            <span class="bt-sub">合规运营 · 平台治理 · 规则运营</span>
           </button>
           <a class="board-jump" href="aigc.html" title="AIGC 视频作品集（新页面）">
             <span class="bt-name">AIGC 视频 <span class="bj-arrow" aria-hidden="true">↗</span></span>
@@ -844,6 +850,237 @@
           </ol>
         </div>
       </section>
+    </section>
+
+    <!-- ======================= 方向板块 · 治理合规 ======================= -->
+    <section class="board" id="board-gov" role="tabpanel" aria-labelledby="tab-gov" hidden>
+
+      <!-- 方向定位 -->
+      <div class="section board-intro">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="sec-num mono">02 · TRACK</span>
+            <h2 class="sec-title" id="gov-intro-title">方向 · 治理合规</h2>
+            <p class="sec-desc board-goal"><span class="chip chip--hl">目标岗位</span>合规运营 · 平台治理 · 规则运营</p>
+          </header>
+          <div class="highlights" data-stagger>
+          <article class="hl-card reveal">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>完整治理闭环经验</h3>
+            <p>从金融机构 IT 合规审计（对照监管标准、出具审计意见、推动整改），到美股上市合规流程研究，再到协会章程执笔与落地——完整走过「制定规则—推动落地—审核把关—数据反馈—优化规则」的闭环。</p>
+          </article>
+          <article class="hl-card reveal">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-pulse"/></svg>风险敏感 · 交叉核验</h3>
+            <p>一级市场尽调中对项目方信息交叉核验、排查风险点，形成结构化纪要支撑投决参考；挑战杯项目中主导政策合规要求分析与风险合规测算，习惯把不确定性拆成风险清单。</p>
+          </article>
+          <article class="hl-card reveal">
+            <h3><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>规则产品化能力</h3>
+            <p>AI coding 工具重度使用者，习惯把规则沉淀为可复用的工具：ai-video-eval 用评价数据迭代内容质量标准，网申快填工具把「只填不提交」做成产品级安全边界——规则不止于文档，还能落地为产品。</p>
+          </article>
+        </div>
+
+          <!-- 治理闭环示意（图文结合） -->
+          <div class="gov-loop reveal" role="img" aria-label="治理闭环：制定规则、推动落地、审核把关、数据反馈、优化规则五步循环">
+            <svg viewBox="0 0 920 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <marker id="govArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" opacity="0.55"/>
+                </marker>
+              </defs>
+              <g fill="none" stroke="currentColor" opacity="0.5" stroke-width="1.6" marker-end="url(#govArrow)">
+                <path d="M 148 128 L 236 62"/>
+                <path d="M 384 52 L 492 52"/>
+                <path d="M 640 62 L 728 128"/>
+                <path d="M 744 168 L 560 226"/>
+                <path d="M 392 232 L 200 226 L 132 176"/>
+              </g>
+              <g class="gov-nodes">
+                <g transform="translate(46,96)"><rect width="104" height="64" rx="12"/><text x="52" y="30">制定规则</text><text x="52" y="48" class="gov-sub">标准先行</text></g>
+                <g transform="translate(238,20)"><rect width="146" height="64" rx="12"/><text x="73" y="30">推动落地</text><text x="73" y="48" class="gov-sub">章程落地 · 规范落实</text></g>
+                <g transform="translate(492,20)"><rect width="146" height="64" rx="12"/><text x="73" y="30">审核把关</text><text x="73" y="48" class="gov-sub">合规审计 · 交叉核验</text></g>
+                <g transform="translate(728,96)"><rect width="146" height="64" rx="12"/><text x="73" y="30">数据反馈</text><text x="73" y="48" class="gov-sub">问题清单 · 纪要沉淀</text></g>
+                <g transform="translate(392,196)"><rect width="168" height="64" rx="12"/><text x="84" y="30">优化规则</text><text x="84" y="48" class="gov-sub">模板化 · 工具化 · 迭代</text></g>
+              </g>
+            </svg>
+            <p class="gov-loop-cap">从金融机构合规审计到内容质量标准迭代，我在校期间完整走过这条治理闭环</p>
+          </div>
+        </div>
+      </div>
+
+  <!-- 治理知识体系 -->
+    <section class="section section--alt" id="gov-knowledge" aria-labelledby="gov-knowledge-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="sec-num mono">02 · KNOWLEDGE</span>
+          <h2 id="gov-knowledge-title" class="sec-title">治理合规知识体系</h2>
+          <p class="sec-desc">六块能力拼图：从审计方法到制度设计，构成「规则如何被可靠执行」的完整认知。</p>
+        </header>
+
+        <div class="kn-grid" data-stagger>
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+              <h3>合规审计方法</h3>
+            </div>
+            <p>对照监管要求逐项审查信息技术治理、应急管理、重要信息系统等合规项；识别制度缺陷与合规风险，汇总问题清单、出具审计意见，并通过专家访谈核实定性，推动整改闭环。</p>
+            <ul class="kn-tags">
+              <li class="chip chip--mono">监管标准对照</li>
+              <li class="chip chip--mono">问题清单</li>
+              <li class="chip chip--mono">整改闭环</li>
+            </ul>
+          </article>
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>
+              <h3>上市合规与信披</h3>
+            </div>
+            <p>研究美股上市合规流程与信息披露要求，参与多家拟赴纳斯达克上市公司建议书撰写；把非标工作沉淀为公司统一沿用的标准化模板——规则标准化、流程化。</p>
+            <ul class="kn-tags">
+              <li class="chip chip--mono">IPO 合规流程</li>
+              <li class="chip chip--mono">信息披露</li>
+              <li class="chip chip--mono">模板标准化</li>
+            </ul>
+          </article>
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>
+              <h3>平台规则运营</h3>
+            </div>
+            <p>ai-video-eval 完整实践「制定标准—执行判定—数据反馈—优化标准」的规则运营闭环：10 维度评估标准分层判定，客观指标本地计算、主观指标模型研判、人机协同复审校准，评估数据反哺标准迭代。</p>
+            <ul class="kn-tags">
+              <li class="chip chip--mono">标准制定</li>
+              <li class="chip chip--mono">分层判定</li>
+              <li class="chip chip--mono">规则产品化</li>
+            </ul>
+          </article>
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+              <h3>安全与隐私边界</h3>
+            </div>
+            <p>把安全边界内置于产品基因：网申快填工具「只填不提交」、简历与登录态只存本机不上传；AI Banking Agent 架构内置事件审计、全部操作留痕可查——「数据自主可控」与「操作可审计」作为硬约束。</p>
+            <ul class="kn-tags">
+              <li class="chip chip--mono">数据自主可控</li>
+              <li class="chip chip--mono">事件审计留痕</li>
+              <li class="chip chip--mono">最小化原则</li>
+            </ul>
+          </article>
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-pulse"/></svg>
+              <h3>风险识别与核验</h3>
+            </div>
+            <p>一级市场尽调中对项目方信息交叉核验、排查风险点，形成结构化纪要支撑投决；挑战杯项目主导政策合规要求分析与风险合规测算——初始成本、收入预测、风险清单逐项过。</p>
+            <ul class="kn-tags">
+              <li class="chip chip--mono">交叉核验</li>
+              <li class="chip chip--mono">风险清单</li>
+              <li class="chip chip--mono">政策合规测算</li>
+            </ul>
+          </article>
+          <article class="kn-card reveal">
+            <div class="kn-head">
+              <svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>
+              <h3>制度与章程设计</h3>
+            </div>
+            <p>执笔科技创新协会章程：成员权责、活动组织规范、准入与退出机制，并推动协会架构落地运行；demoday 中制定各路演团队参与与展示规范并逐一确认落实，活动零差错收官。</p>
+            <ul class="kn-tags">
+              <li class="chip chip--mono">章程执笔</li>
+              <li class="chip chip--mono">准入退出机制</li>
+              <li class="chip chip--mono">规范落实</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  <!-- 治理视角工作经历 -->
+    <section class="section" id="gov-experience" aria-labelledby="gov-experience-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="sec-num mono">03 · EXPERIENCE</span>
+          <h2 id="gov-experience-title" class="sec-title">工作经历</h2>
+          <p class="sec-desc"><span class="chip chip--note">治理视角 · 节选</span></p>
+        </header>
+
+        <ol class="timeline" data-stagger>
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>上海艾芒科技有限公司</h3>
+                <p class="tl-role">IT 合规审计</p>
+                <time class="tl-time mono" datetime="2024-12">2024.12 – 2025.04</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">合规专项审计</li>
+                <li class="chip chip--mono">整改闭环</li>
+              </ul>
+              <ul>
+                <li>为多家金融机构提供 IT 合规专项审计：对照监管要求逐项审查信息技术治理、应急管理、重要信息系统等合规项，识别制度缺陷与合规风险，汇总形成问题清单与审计意见并向甲方交付。</li>
+                <li>与咨询单位技术主管开展一对一专家访谈核实问题定性，推动合规问题整改闭环；入职一周即带实习生团队对接甲方完成项目交付。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>Real Value Capital（至真资本）</h3>
+                <p class="tl-role">投资助理（上市合规研究）</p>
+                <time class="tl-time mono" datetime="2025-10">2025.10 – 2025.12</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">上市合规</li>
+                <li class="chip chip--mono">信披研究</li>
+              </ul>
+              <ul>
+                <li>研究美股上市合规流程与信息披露要求，参与为多家拟赴纳斯达克上市的公司撰写上市建议书，并参与配套行业研究。</li>
+                <li>将非标工作沉淀为公司统一沿用的标准化建议书模板（规则标准化、流程化），参与撰写销售合伙人培训材料。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>Link-x Capital（星连资本）</h3>
+                <p class="tl-role">投资助理（尽调核验） / 孵化器规范统筹</p>
+                <time class="tl-time mono" datetime="2026-07">2026.07 – 2026.09</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">交叉核验</li>
+                <li class="chip chip--mono">活动规范</li>
+              </ul>
+              <ul>
+                <li>担任一级市场投前分析师：对项目方信息交叉核验、排查风险点，形成结构化纪要支撑投决参考。</li>
+                <li>统筹上千位投资人到场的 demoday：事前制定各路演团队参与与展示规范并逐一确认落实，现场统一调度物料交付，活动零差错收官。</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <article class="tl-card">
+              <div class="tl-head">
+                <h3>北京汇丰盛和国际贸易有限公司</h3>
+                <p class="tl-role">行业研究员（数据标准）</p>
+                <time class="tl-time mono" datetime="2023-06">2023.06 – 2024.01</time>
+              </div>
+              <ul class="tl-meta">
+                <li class="chip chip--mono">数据清洗</li>
+                <li class="chip chip--mono">识别标准</li>
+              </ul>
+              <ul>
+                <li>对大规模氧化铝交易数据进行清洗与分析，建立高价值客户识别标准并输出客户分层清单，为销售决策提供数据参考。</li>
+                <li>系统掌握「调研—分析—报告」全流程方法论，独立完成多项行业研究交付。</li>
+              </ul>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     </section>
 
     <!-- ======================= ④ 校内与社会实践（固定模块 · 不随方向切换变化） ======================= -->
